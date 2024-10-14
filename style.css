@@ -1,0 +1,99 @@
+body{
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  background-color: rgba(0, 132, 55, 0.2);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} 
+#container{
+  background-color: white;
+  border-radius: 25px;
+  width: 900px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 3px 3px 30px 5px #cccccc;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2%;
+}
+h1 {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+}
+#reset {
+  height: 50px;
+  max-width: 90px;
+  border-radius: 25px;
+  font-size: 22px;
+  background-color: transparent;
+  border: 2px solid rgb(0, 132, 55);
+  color: rgb(0, 132, 55);
+  margin-top: 10px;
+  transition: background-color 0.5s;
+}
+#reset:hover {
+  background-color: rgba(0, 132, 55, 0.4);
+}
+.group-name{
+  color: #505050;
+  text-align: center;
+  font-weight: bold;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: solid 1px #505050;
+  border-bottom: solid 1px #505050;
+}
+#revenues{
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.revenue{
+  width: 400px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.revenue-name{
+  font-size: 16px;
+  width: 200px;
+}
+.value{
+  display: flex;
+  width: 200px;
+}
+input{
+  height: 20px;
+  flex-grow: 1;
+  width: 0;
+  color: #505050;
+  border-style: solid;
+  border-color: #505050;
+  border-radius: 20px;
+  outline: none !important;
+}
+input.visited{
+  color: black;
+  border-color: black;
+  outline: none !important;
+}
+.unit{
+  padding-left: 3px;
+}

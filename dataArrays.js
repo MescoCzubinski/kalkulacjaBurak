@@ -57,3 +57,26 @@ const revenues = [
     297.61,
     130.00
 ];
+const revenuesIDs = [
+    "zakladany-plon",
+    "plon-z-kontraktacji",
+    "plon-pozakontraktowy",
+    "ilosc-wyslodkow",
+    "cena-burakow-kontraktowych",
+    "cena-burakow-pozakontraktowych",
+    "cena-wyslodkow",
+    "podstawowe-wsparcie-dochodow",
+    "platnosc-redystrybucyjna",
+    "platnosc-dla-mlodych-rolnikow",
+    "platnosc-do-burakow-cukrowych",
+    "ekoschemat-miedzyplony-lub-wsiewki",
+    "ekoschemat-plan-nawozenia",
+    "ekoschemat-zroznicowana-struktura-upraw",
+    "ekoschemat-wymieszanie-obornika",
+    "ekoschemat-stosowanie-nawozow-naturalnych-plynnych-nierozbryzgowo",
+    "ekoschemat-uproszczone-systemy-uprawy",
+    "ekoschemat-wymieszanie-slomy-z-gleba",
+    "ekoschemat-integrowana-produkcja-roslin",
+    "ekoschemat-biologiczna-ochrona-upraw",
+    "ekoschemat"
+];

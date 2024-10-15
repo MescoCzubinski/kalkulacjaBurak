@@ -187,20 +187,20 @@ function revenuesCalculation(){
   ekoschematBiologicznaOchronaUpraw = parseFloat(ekoschematBiologicznaOchronaUpraw.replace(/\s+/g, ''));
 
   let innyEkoschemat = elementInnyEkoschemat.value;
-  ekoschematBiologicznaOchronaUpraw = textToNumber(innyEkoschemat);
+  innyEkoschemat = textToNumber(innyEkoschemat);
   elementInnyEkoschemat.value = innyEkoschemat;
   innyEkoschemat = parseFloat(innyEkoschemat.replace(/\s+/g, ''));
 
-  let ekoschematMiedzyplonyLubWsiewkiChecked = elementEkoschematMiedzyplonyLubWsiewki.checked ? Number(elementEkoschematMiedzyplonyLubWsiewki.value) : 0;
-  let ekoschematPlanNawozeniaChecked = elementEkoschematPlanNawozenia.checked ? Number(elementEkoschematPlanNawozenia.value) : 0;
-  let ekoschematZroznicowanaStrukturaUprawChecked = elementEkoschematZroznicowanaStrukturaUpraw.checked ? Number(elementEkoschematZroznicowanaStrukturaUpraw.value) : 0;
-  let ekoschematWymieszanieObornikaChecked = elementEkoschematWymieszanieObornika.checked ? Number(elementEkoschematWymieszanieObornika.value) : 0;
-  let ekoschematStosowanieNawozowNaturalnychChecked = elementEkoschematStosowanieNawozowNaturalnych.checked ? Number(elementEkoschematStosowanieNawozowNaturalnych.value) : 0;
-  let ekoschematUproszczoneSystemyUprawyChecked = elementEkoschematUproszczoneSystemyUprawy.checked ? Number(elementEkoschematUproszczoneSystemyUprawy.value) : 0;
-  let ekoschematWymieszanieSlomyZGlebaChecked = elementEkoschematWymieszanieSlomyZGleba.checked ? Number(elementEkoschematWymieszanieSlomyZGleba.value) : 0;
-  let ekoschematIntegrowanaProdukcjaRoslinChecked = elementEkoschematIntegrowanaProdukcjaRoslin.checked ? Number(elementEkoschematIntegrowanaProdukcjaRoslin.value) : 0;
-  let ekoschematBiologicznaOchronaUprawChecked = elementEkoschematBiologicznaOchronaUpraw.checked ? Number(elementEkoschematBiologicznaOchronaUpraw.value) : 0;
-  let innyEkoschematChecked = elementInnyEkoschemat.checked ? Number(elementInnyEkoschemat.value) : 0;
+  let ekoschematMiedzyplonyLubWsiewkiChecked = elementEkoschematMiedzyplonyLubWsiewki.checked ? ekoschematMiedzyplonyLubWsiewki : 0;
+  let ekoschematPlanNawozeniaChecked = elementEkoschematPlanNawozenia.checked ?ekoschematPlanNawozenia : 0;
+  let ekoschematZroznicowanaStrukturaUprawChecked = elementEkoschematZroznicowanaStrukturaUpraw.checked ? ekoschematZroznicowanaStrukturaUpraw : 0;
+  let ekoschematWymieszanieObornikaChecked = elementEkoschematWymieszanieObornika.checked ? ekoschematWymieszanieObornika : 0;
+  let ekoschematStosowanieNawozowNaturalnychChecked = elementEkoschematStosowanieNawozowNaturalnych.checked ? ekoschematStosowanieNawozowNaturalnych : 0;
+  let ekoschematUproszczoneSystemyUprawyChecked = elementEkoschematUproszczoneSystemyUprawy.checked ? ekoschematUproszczoneSystemyUprawy : 0;
+  let ekoschematWymieszanieSlomyZGlebaChecked = elementEkoschematWymieszanieSlomyZGleba.checked ? ekoschematWymieszanieSlomyZGleba : 0;
+  let ekoschematIntegrowanaProdukcjaRoslinChecked = elementEkoschematIntegrowanaProdukcjaRoslin.checked ? ekoschematIntegrowanaProdukcjaRoslin : 0;
+  let ekoschematBiologicznaOchronaUprawChecked = elementEkoschematBiologicznaOchronaUpraw.checked ? ekoschematBiologicznaOchronaUpraw : 0;
+  let innyEkoschematChecked = elementInnyEkoschemat.checked ? innyEkoschemat : 0;
 
   let supplementResult = (
     podstawoweWsparcieDochodow +
@@ -220,5 +220,5 @@ function revenuesCalculation(){
   );
   supplementResult = Math.round(supplementResult*100);
 
-  document.querySelector('#results-divs').innerHTML = ((revenueResult + supplementResult)/100 + "zł/ha");
+  document.querySelector('#results-divs').innerHTML = ((revenueResult + supplementResult)/100 + " zł/ha");
 }

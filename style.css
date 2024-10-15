@@ -31,7 +31,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
-  font-size: 26px;
+  font-size: 30px;
 }
 #reset {
   height: 50px;
@@ -51,7 +51,8 @@ h1 {
   color: #505050;
   text-align: center;
   font-weight: bold;
-  width: 800px;
+  font-size: 20px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
@@ -65,11 +66,22 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+.results{
+  display: flex;
+  font-size: 20px;
+  width: 260px;
+}
+#results-divs{
+  margin-left: 30px;
+}
 .revenue, .supplement{
-  width: 400px;
+  width: 300px;
   display: flex;
   align-items: center;
+  text-align: center;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .supplements-checkbox{
   width: 40px;
@@ -82,17 +94,20 @@ h1 {
 }
 .value{
   display: flex;
-  width: 200px;
+  width: 120px;
 }
 input{
-  height: 20px;
+  height: 30px;
   flex-grow: 1;
   width: 0;
   color: #505050;
   border-style: solid;
   border-color: #505050;
-  border-radius: 20px;
+  border-radius: 15px;
   outline: none !important;
+  font-size: 18px;
+  padding-left: 4px;
+
 }
 input.visited{
   color: black;
@@ -101,4 +116,5 @@ input.visited{
 }
 .unit{
   padding-left: 3px;
+  font-size: 18px;
 }

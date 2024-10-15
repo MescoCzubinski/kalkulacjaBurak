@@ -73,7 +73,7 @@ const revenuesIDs = [
     "ekoschemat-plan-nawozenia",
     "ekoschemat-zroznicowana-struktura-upraw",
     "ekoschemat-wymieszanie-obornika",
-    "ekoschemat-stosowanie-nawozow-naturalnych-plynnych-nierozbryzgowo",
+    "ekoschemat-stosowanie-nawozow-naturalnych",
     "ekoschemat-uproszczone-systemy-uprawy",
     "ekoschemat-wymieszanie-slomy-z-gleba",
     "ekoschemat-integrowana-produkcja-roslin",

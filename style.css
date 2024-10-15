@@ -61,7 +61,7 @@ h1 {
   border-top: solid 1px #505050;
   border-bottom: solid 1px #505050;
 }
-.revenues, .supplements, .results{
+.revenues, .supplements, .ecoschemes, .results{
   width: 400px;
   margin-left: auto;
   margin-right: auto;
@@ -117,4 +117,7 @@ input.visited{
 .unit{
   padding-left: 3px;
   font-size: 18px;
+}
+label{
+  display: flex;
 }

@@ -2,7 +2,7 @@
 <html lang="pl">
     <head>
         <meta charset="utf-8"/>
-        <title>Kalkulator buraki</title>
+        <title>Kalkulator opłacalności buraka</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
         <script src="script.js" defer></script>
@@ -10,13 +10,13 @@
         <script src="dataArrays.js" defer></script>
         <script src="scriptValidation.js" defer></script>
     </head>
-    <body>
+    <body>  
         <main>
             <article>
                 <div id="container">
                     <header>
                         <div id="header">
-                            <h1>Buraki</h1>
+                            <h1>Kalkulator opłacalności buraka</h1>
                             <button id="reset">Resetuj</button>
                         </div>
                     </header>
@@ -36,13 +36,18 @@
                     </section>
 
                     <section>
+                        <div class="group-name">Ekoschematy</div>
+                        <div class="ecoschemes">
+                            <div id="ecoschemes-divs"></div>
+                        </div>
+                    </section>
+
+                    <section>
                         <div class="results">
                             <div id="results-name">Przychód:</div>
                             <div id="results-divs"></div>
                         </div>
                     </section>
-
-                    <div id="waiting-warning"></div>
                 </div>
             </article>
         </main>

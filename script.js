@@ -8,11 +8,13 @@ function revenuesDisplay(){
     for(i=0; i<revenues.length; i++){
         revenue += `
                     <div class="revenue">
-                        <div class="revenue-name">${revenues[i]}</div> 
-                        <div class="value">
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${revenuesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
-                            <div class="unit">${revenuesUnits[i]}</div>
-                        </div>
+                        <label>
+                            <div class="revenue-name">${revenues[i]}</div> 
+                            <div class="value">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${revenuesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
+                                <div class="unit">${revenuesUnits[i]}</div>
+                            </div>
+                        </label>
                     </div>
                     `;
         revenuesInputIndex++;
@@ -20,12 +22,14 @@ function revenuesDisplay(){
 
     for(i=0; i<supplements.length; i++){
         supplement += `
-                    <div class="revenue">
-                        <div class="revenue-name">${supplements[i]}</div> 
-                        <div class="value">
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${supplementsValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
-                            <div class="unit">zł/ha</div>
-                        </div>
+                    <div class="supplement">
+                        <label>
+                            <div class="supplement-name">${supplements[i]}</div> 
+                            <div class="value">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${supplementsValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
+                                <div class="unit">zł/ha</div>
+                            </div>
+                        </label>
                     </div>
                     `;
         revenuesInputIndex++;
@@ -33,12 +37,12 @@ function revenuesDisplay(){
 
   for (i = 0; i < ecoschemes.length; i++) {
     ecoscheme += `
-                    <div class="supplement">
+                    <div class="ecoscheme">
                         <label>
-                            <input type="checkbox" checked class="supplements-checkbox" value="${ecoschemesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}">
-                            <div class="supplement-name">${ecoschemes[i]}</div> 
+                            <input type="checkbox" checked class="ecoscheme-checkbox" id="${revenuesIDs[revenuesInputIndex] + "-checkbox"}"></input>
+                            <div class="ecoscheme-name">${ecoschemes[i]}</div> 
                             <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${ecoschemesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${ecoschemesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
                                 <div class="unit">zł/ha</div>
                             </div>
                         </label>
@@ -53,6 +57,7 @@ function revenuesDisplay(){
 }
 
 document.addEventListener('input', revenuesCalculation)
+document.addEventListener('click', revenuesCalculation)
 document.addEventListener('DOMContentLoaded', revenuesCalculation)
 
 function revenuesCalculation(){
@@ -191,16 +196,16 @@ function revenuesCalculation(){
   elementInnyEkoschemat.value = innyEkoschemat;
   innyEkoschemat = parseFloat(innyEkoschemat.replace(/\s+/g, ''));
 
-  let ekoschematMiedzyplonyLubWsiewkiChecked = elementEkoschematMiedzyplonyLubWsiewki.checked ? ekoschematMiedzyplonyLubWsiewki : 0;
-  let ekoschematPlanNawozeniaChecked = elementEkoschematPlanNawozenia.checked ?ekoschematPlanNawozenia : 0;
-  let ekoschematZroznicowanaStrukturaUprawChecked = elementEkoschematZroznicowanaStrukturaUpraw.checked ? ekoschematZroznicowanaStrukturaUpraw : 0;
-  let ekoschematWymieszanieObornikaChecked = elementEkoschematWymieszanieObornika.checked ? ekoschematWymieszanieObornika : 0;
-  let ekoschematStosowanieNawozowNaturalnychChecked = elementEkoschematStosowanieNawozowNaturalnych.checked ? ekoschematStosowanieNawozowNaturalnych : 0;
-  let ekoschematUproszczoneSystemyUprawyChecked = elementEkoschematUproszczoneSystemyUprawy.checked ? ekoschematUproszczoneSystemyUprawy : 0;
-  let ekoschematWymieszanieSlomyZGlebaChecked = elementEkoschematWymieszanieSlomyZGleba.checked ? ekoschematWymieszanieSlomyZGleba : 0;
-  let ekoschematIntegrowanaProdukcjaRoslinChecked = elementEkoschematIntegrowanaProdukcjaRoslin.checked ? ekoschematIntegrowanaProdukcjaRoslin : 0;
-  let ekoschematBiologicznaOchronaUprawChecked = elementEkoschematBiologicznaOchronaUpraw.checked ? ekoschematBiologicznaOchronaUpraw : 0;
-  let innyEkoschematChecked = elementInnyEkoschemat.checked ? innyEkoschemat : 0;
+  let ekoschematMiedzyplonyLubWsiewkiChecked = document.querySelector("#ekoschemat-miedzyplony-lub-wsiewki-checkbox").checked ? ekoschematMiedzyplonyLubWsiewki : 0;
+  let ekoschematPlanNawozeniaChecked = document.querySelector("#ekoschemat-plan-nawozenia-checkbox").checked ?ekoschematPlanNawozenia : 0;
+  let ekoschematZroznicowanaStrukturaUprawChecked = document.querySelector("#ekoschemat-zroznicowana-struktura-upraw-checkbox").checked ? ekoschematZroznicowanaStrukturaUpraw : 0;
+  let ekoschematWymieszanieObornikaChecked = document.querySelector("#ekoschemat-wymieszanie-obornika-checkbox").checked ? ekoschematWymieszanieObornika : 0;
+  let ekoschematStosowanieNawozowNaturalnychChecked = document.querySelector("#ekoschemat-stosowanie-nawozow-naturalnych-checkbox").checked ? ekoschematStosowanieNawozowNaturalnych : 0;
+  let ekoschematUproszczoneSystemyUprawyChecked = document.querySelector("#ekoschemat-uproszczone-systemy-uprawy-checkbox").checked ? ekoschematUproszczoneSystemyUprawy : 0;
+  let ekoschematWymieszanieSlomyZGlebaChecked = document.querySelector("#ekoschemat-wymieszanie-slomy-z-gleba-checkbox").checked ? ekoschematWymieszanieSlomyZGleba : 0;
+  let ekoschematIntegrowanaProdukcjaRoslinChecked = document.querySelector("#ekoschemat-integrowana-produkcja-roslin-checkbox").checked ? ekoschematIntegrowanaProdukcjaRoslin : 0;
+  let ekoschematBiologicznaOchronaUprawChecked = document.querySelector("#ekoschemat-biologiczna-ochrona-upraw-checkbox").checked ? ekoschematBiologicznaOchronaUpraw : 0;
+  let innyEkoschematChecked = document.querySelector("#inny-ekoschemat-checkbox").checked ? innyEkoschemat : 0;
 
   let supplementResult = (
     podstawoweWsparcieDochodow +
@@ -218,6 +223,7 @@ function revenuesCalculation(){
     ekoschematBiologicznaOchronaUprawChecked +
     innyEkoschematChecked
   );
+  
   supplementResult = Math.round(supplementResult*100);
 
   document.querySelector('#results-divs').innerHTML = ((revenueResult + supplementResult)/100 + " zł/ha");

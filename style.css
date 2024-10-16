@@ -61,40 +61,54 @@ h1 {
   border-top: solid 1px #505050;
   border-bottom: solid 1px #505050;
 }
-.revenues, .supplements, .ecoschemes, .results{
-  width: 400px;
+.revenues, .supplements, .results{
+  width: 330px;
   margin-left: auto;
   margin-right: auto;
 }
 .results{
+  width: 400px;
   display: flex;
   font-size: 20px;
-  width: 260px;
-}
-#results-divs{
-  margin-left: 30px;
+  width: 0px;
 }
 .revenue, .supplement{
-  width: 300px;
+  width: 330px;
   display: flex;
   align-items: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
+  padding: 0;
+  margin: 0;
   margin-left: auto;
   margin-right: auto;
 }
-.supplements-checkbox{
+.ecoschemes{
+  width: 370px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ecoscheme{
+  margin-bottom: 20px !important;
+}
+.ecoscheme-checkbox{
   width: 40px;
+  margin: 0;
   border-radius: 20px;
 }
-.revenue-name, .supplement-name{
+.revenue-name, .supplement-name, .ecoscheme-name{
   text-align: left;
   font-size: 16px;
   width: 200px;
 }
 .value{
   display: flex;
-  width: 120px;
+  width: 130px;
 }
 input{
   height: 30px;

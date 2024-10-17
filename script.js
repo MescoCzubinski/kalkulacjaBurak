@@ -228,3 +228,46 @@ function revenuesCalculation(){
 
   document.querySelector('#results-divs').innerHTML = ((revenueResult + supplementResult)/100 + " zł/ha");
 }
+
+document.addEventListener('DOMContentLoaded', costDisplay)
+function costDisplay(){
+    let costInputIndex = 0;
+    let springCosts = "";
+
+    for(i=0; i<springNames.length; i++){
+        springCosts += `
+                    <div>
+                        <div class="spring-cost-name">${springNames[i]}</div>
+                    </div>
+                    <div class="spring-cost">
+                        <label>
+                            <div class="value">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${springValues[i]}"></input>
+                                <div class="unit">${springUnits[i]}</div>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${springValues[i]}"></input>
+                                <div class="unit">${springUnits[i]}</div>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*"></input>
+                                <div class="unit">${springUnits[i]}</div>
+                            </div>
+                        </label>
+                    </div>
+                    `;
+                    costInputIndex++;
+    };
+    for(i=0; i<springNamesOneVaue.length; i++){
+        springCosts += `
+                    <div class="revenue">
+                        <label>
+                            <div class="revenue-name">${springNamesOneVaue[i]}</div>
+                            <div class="value">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${springValuesOneVaue[i]}"></input>
+                                <div class="unit">${springUnitsOneVaue[i]}</div>
+                            </div>
+                        </label>
+                    </div>
+                    `;
+                    costInputIndex++;
+    };
+
+    document.querySelector('#spring-costs-divs').innerHTML = springCosts;
+}

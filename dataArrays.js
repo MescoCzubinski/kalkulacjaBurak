@@ -84,3 +84,46 @@ const revenuesIDs = [
   "ekoschemat-biologiczna-ochrona-upraw",
   "inny-ekoschemat"
 ];
+
+const springNames = [
+  "koszt jednego zabiegu nawożenia",
+  "koszt jednego zabiegu opryskiwania",
+  "koszt jednego zabiegu opielania",
+  "herbicyd z glifosatem",
+  "adiuwant do glifosatu",
+  "nasiona buraka"
+];
+const springNamesOneVaue = [
+  "płytka uprawa wiosenna",
+  "uprawa przedsiewna",
+  "mulczowanie międzyplonu",
+  "siew punktowy lub strip-till"
+]
+const springValues = [
+  48.00,
+  42.00,
+  220.00,
+  37.00,
+  12.00,
+  1200.00
+];
+const springValuesOneVaue = [
+  120.00,
+  110.00,
+  151.00,
+  220.00
+]
+const springUnits = [
+  "zł/ha",
+  "zł/ha",
+  "zł/ha",
+  "zł/l",
+  "zł/l",
+  "zł/js."
+];
+const springUnitsOneVaue = [
+  "zł/ha",
+  "zł/ha",
+  "zł/ha",
+  "zł/ha"
+]

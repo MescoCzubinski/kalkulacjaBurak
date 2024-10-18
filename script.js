@@ -2,18 +2,27 @@ document.addEventListener('DOMContentLoaded', () => {
     costDisplay();
     revenuesDisplay();
     fertilizersDisplay();
+    pestManagementDisplay();
 
     springCalculation();
     revenuesCalculation();
     fertilizersCalculation();
+    pestManagementCalculation();
+});
+
+document.querySelector('#reset').addEventListener('click', () => {
+    costDisplay();
+    revenuesDisplay();
+    fertilizersDisplay();
+    pestManagementDisplay();
 });
 
 document.addEventListener('input', () => {
     springCalculation();
     revenuesCalculation();
     fertilizersCalculation();
+    pestManagementCalculation();
 });
-
 
 function revenuesDisplay(){
     let revenuesInputIndex = 0;
@@ -120,7 +129,7 @@ function fertilizersDisplay() {
     for (let i = 0; i < 10; i++) {
         fertilizers += `
                 <div>
-                    <div class="spring-cost-name">Nawóz ${i+1}</div>
+                    <input class="spring-cost-name" type="text" value="Nawóz ${i+1}"></div>
                 </div>
                 <div class="spring-cost">
                     <label>
@@ -137,11 +146,10 @@ function fertilizersDisplay() {
             `;
     }
 
-    
     for (let i = 10; i < 14; i++) {
         fertilizers += `
                 <div>
-                    <div class="spring-cost-name">Nawóz dolistny ${i-9}</div>
+                    <input class="spring-cost-name" type="text" value="Nawóz dolistny ${i-9}"></div>
                 </div>
                 <div class="spring-cost">
                     <label>
@@ -160,6 +168,173 @@ function fertilizersDisplay() {
 
     document.querySelector('#fertilizers-divs').innerHTML = fertilizers;
 }
+
+let globalIndex = 0;
+function pestManagementDisplay(){
+    let pestManagement = "";
+    for(let j=0; j<4; j++){
+        for (let i = 0; i < 5; i++) {
+            pestManagement += `
+                    <div>
+                        <input class="spring-cost-name" type="text" value="Herbicyd ${i+1} do zabiegu ${j+1}"></div>
+                    </div>
+                    <div class="spring-cost">
+                        <label>
+                            <div class="value">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                                <div class="unit">zł/l, kg</div>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                                <div class="unit">l, kg/ha</div>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                                <div class="unit">zł/ha</div>
+                            </div>
+                        </label>
+                    </div>
+                `;
+                globalIndex++;
+        }
+        pestManagement += `
+            <div>
+                <input class="spring-cost-name" type="text" value="Adiuwant do zabiegu ${j+1}"></div>
+            </div>
+            <div class="spring-cost">
+                <label>
+                    <div class="value">
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                        <div class="unit"></div>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                        <div class="unit"></div>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                        <div class="unit">zł/ha</div>
+                    </div>
+                </label>
+            </div>
+        `;
+        globalIndex++;
+    }
+
+    for(let j=0; j<3; j++){
+        for (let i = 0; i < 3; i++) {
+            pestManagement += `
+                    <div>
+                        <input class="spring-cost-name" type="text" value="Fungicyd ${i+1} do zabiegu ${j+1}"></div>
+                    </div>
+                    <div class="spring-cost">
+                        <label>
+                            <div class="value">
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                                <div class="unit">zł/l, kg</div>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                                <div class="unit">l, kg/ha</div>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                                <div class="unit">zł/ha</div>
+                            </div>
+                        </label>
+                    </div>
+                `;
+                globalIndex++;
+        }
+        pestManagement += `
+            <div>
+                <input class="spring-cost-name" type="text" value="Adiuwant do zabiegu ${j+1}"></div>
+            </div>
+            <div class="spring-cost">
+                <label>
+                    <div class="value">
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                        <div class="unit"></div>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                        <div class="unit"></div>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                        <div class="unit">zł/ha</div>
+                    </div>
+                </label>
+            </div>
+        `;
+        globalIndex++;
+    }
+
+    for (let i = 0; i < 5; i++) {
+        pestManagement += `
+                <div>
+                    <input class="spring-cost-name" type="text" value="Insektycyd ${i+1}"></div>
+                </div>
+                <div class="spring-cost">
+                    <label>
+                        <div class="value">
+                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                            <div class="unit">zł/l, kg</div>
+                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                            <div class="unit">l, kg/ha</div>
+                            <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                            <div class="unit">zł/ha</div>
+                        </div>
+                    </label>
+                </div>
+            `;
+            globalIndex++;
+    }
+
+    pestManagement += `
+    <div>
+        <input class="spring-cost-name" type="text" value="Moluskocyd (na ślimaki)"></div>
+    </div>
+    <div class="spring-cost">
+        <label>
+            <div class="value">
+                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                <div class="unit">zł/kg</div>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                <div class="unit">kg/ha</div>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                <div class="unit">zł/ha</div>
+            </div>
+        </label>
+    </div>
+    `;
+    globalIndex++;
+
+    pestManagement += `
+    <div>
+        <input class="spring-cost-name" type="text" value="Biopreparat 1"></div>
+    </div>
+    <div class="spring-cost">
+        <label>
+            <div class="value">
+                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                <div class="unit">zł/l, kg</div>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                <div class="unit">l, kg/ha</div>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                <div class="unit">zł/ha</div>
+            </div>
+        </label>
+    </div>
+    `;
+    globalIndex++;
+
+    pestManagement += `
+    <div>
+        <input class="spring-cost-name" type="text" value="Biopreparat 1"></div>
+    </div>
+    <div class="spring-cost">
+        <label>
+            <div class="value">
+                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
+                <div class="unit">zł/l, kg</div>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
+                <div class="unit">l, kg/ha</div>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
+                <div class="unit">zł/ha</div>
+            </div>
+        </label>
+    </div>
+    `;
+    globalIndex++;
+
+    document.querySelector('#pest-management-divs').innerHTML = pestManagement;
+}
+
 
 function revenuesCalculation() {
     const values = {};
@@ -257,6 +432,26 @@ function fertilizersCalculation() {
         } else {
             elementResult.value = (Number(value) * Number(amount));
         }
+    }
+}
+
+function pestManagementCalculation() {
+    for(let i=0; i<globalIndex; i++) {
+        const elementValue = document.querySelector(`#pestManagement-${i}-value`);
+        let value = elementValue.value;
+        value = textToNumber(value);
+        elementValue.value = value;
+        value = parseFloat(value.replace(/\s+/g, ''));
+
+        const elementAmount = document.querySelector(`#pestManagement-${i}-amount`);
+        let amount = elementAmount.value;
+        amount = textToNumber(amount);
+        elementAmount.value = amount;
+        amount = parseFloat(amount.replace(/\s+/g, ''));
+
+        const elementResult = document.querySelector(`#pestManagement-${i}-result`);
+
+        elementResult.value = (Number(value) * Number(amount));
     }
 }
 

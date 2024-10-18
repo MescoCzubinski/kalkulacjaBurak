@@ -101,6 +101,21 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+.kalkulatory{
+  width: 370px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.kalkulator-linijka{
+  display: flex;
+  margin-bottom: 20px;
+}
+.kalkulator-linijka-nazwa{
+  text-align: left;
+  font-size: 20px;
+  width: 150px;
+}
 .ecoscheme{
   margin-bottom: 20px !important;
 }

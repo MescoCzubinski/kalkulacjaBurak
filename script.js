@@ -455,3 +455,56 @@ function pestManagementCalculation() {
     }
 }
 
+const addCalculator = () => {
+    const calculator = document.createElement('div');
+    calculator.className = 'calculator';
+    calculator.innerHTML = `
+        <div class="kalkulator-linijka">
+            <input type="text" class="value">
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa">Wartość</div>
+            <div class="value">
+                <input type="text" class="value">
+                <div class="unit">zł/l, kg</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa">Ilość/dawka</div>
+            <div class="value">
+                <input type="text" class="amount">
+                <div class="unit">l, kg/ha</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa">Koszt</div>
+            <div class="value">
+                <span class="result kalkulator-linijka-nazwa">0</span>
+                <div class="unit">zł/ha</div>
+            </div>
+        </div>
+        <div>
+            <button class="addCalculatorBtn">Dodaj</button>
+            <button class="remove">Usuń</button>
+        </div>
+    `;
+    document.getElementById('calculators').appendChild(calculator);
+
+    calculator.querySelector('.value input').addEventListener('input', calculate);
+    calculator.querySelector('.amount').addEventListener('input', calculate);
+
+    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+    calculator.querySelector('.addCalculatorBtn').addEventListener('click', addCalculator);
+};
+
+const calculate = (event) => {
+    const calculator = event.target.closest('.calculator');
+    const input1 = parseFloat(calculator.querySelector('.value input').value) || 0;
+    const input2 = parseFloat(calculator.querySelector('.amount').value) || 0;
+    const result = input1 * input2;
+    calculator.querySelector('.result').textContent = result.toFixed(2); // Wyświetl wynik z dwoma miejscami po przecinku
+};
+
+// Po załadowaniu strony dodaj pierwszy kalkulator
+document.addEventListener('DOMContentLoaded', addCalculator);
+

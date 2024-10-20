@@ -151,7 +151,6 @@ function revenuesCalculation() {
     document.querySelector('#results-divs').innerHTML = ((revenueResult + supplementResult) / 100 + " zł/ha");
 }
 
-
 function springCalculation() {
     springUnitsIDs.forEach((id) => {
         const elementValue = document.querySelector(`#${id}-value`);
@@ -177,7 +176,7 @@ const addCalculatorFertilizer = (parentId) => {
     calculator.innerHTML = `
         <div class="kalkulator-linijka">
             <input type="text" class="product-name" placeholder="Nazwa nawozu">
-            <input type="button" class="addCalculatorBtn" value="+">
+            <input type="button" class="add" value="+">
             <input type="button" class="remove" value="-">
         </div>
         <div class="kalkulator-linijka">
@@ -197,8 +196,7 @@ const addCalculatorFertilizer = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
             <div class="value">
-                <span class="result kalkulator-linijka-nazwa">0.00</span>
-                <div class="unit">zł/ha</div>
+                <span class="result kalkulator-linijka-nazwa"></span>
             </div>
         </div>
     `;
@@ -209,18 +207,18 @@ const addCalculatorFertilizer = (parentId) => {
     calculator.querySelector('.amount').addEventListener('input', calculate);
     
     calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
-    calculator.querySelector('.addCalculatorBtn').addEventListener('click', () => {
+    calculator.querySelector('.add').addEventListener('click', () => {
         addCalculatorFertilizer(parentId);
     });
 };
 
-const addCalculator = (parentId) => {
+const addCalculatorFertilizerOnleaf = (parentId) => {
     const calculator = document.createElement('div');
     calculator.className = 'kalkulator';
     calculator.innerHTML = `
         <div class="kalkulator-linijka">
-            <input type="text" class="product-name" placeholder="Nazwa środka ochrony roślin">
-            <input type="button" class="addCalculatorBtn" value="+">
+            <input type="text" class="product-name" placeholder="Nazwa nawozu nalistnego">
+            <input type="button" class="add" value="+">
             <input type="button" class="remove" value="-">
         </div>
         <div class="kalkulator-linijka">
@@ -240,8 +238,7 @@ const addCalculator = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
             <div class="value">
-                <span class="result kalkulator-linijka-nazwa">0.00</span>
-                <div class="unit">zł/ha</div>
+                <span class="result kalkulator-linijka-nazwa"></span>
             </div>
         </div>
     `;
@@ -252,8 +249,134 @@ const addCalculator = (parentId) => {
     calculator.querySelector('.amount').addEventListener('input', calculate);
     
     calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
-    calculator.querySelector('.addCalculatorBtn').addEventListener('click', () => {
-        addCalculator(parentId);
+    calculator.querySelector('.add').addEventListener('click', () => {
+        addCalculatorFertilizerOnleaf(parentId);
+    });
+};
+
+const addCalculatorPestManagement = (parentId) => {
+    const calculator = document.createElement('div');
+    calculator.className = 'kalkulator';
+    calculator.innerHTML = `
+        <div class="kalkulator-linijka">
+            <input type="text" class="product-name" placeholder="Nazwa środka ochrony roślin">
+            <input type="button" class="add" value="+">
+            <input type="button" class="remove" value="-">
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+            <div class="value">
+                <input type="text" class="price" placeholder="Cena za 1 l/kg">
+                <div class="unit">zł/l, kg</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="value">
+                <input type="text" class="amount" placeholder="Ile l/kg na ha">
+                <div class="unit">l, kg/ha</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+            <div class="value">
+                <span class="result kalkulator-linijka-nazwa"></span>
+            </div>
+        </div>
+    `;
+
+    document.getElementById(parentId).appendChild(calculator);
+
+    calculator.querySelector('.price').addEventListener('input', calculate);
+    calculator.querySelector('.amount').addEventListener('input', calculate);
+    
+    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+    calculator.querySelector('.add').addEventListener('click', () => {
+        addCalculatorPestManagement(parentId);
+    });
+};
+
+const addCalculatorAdiuwant = (parentId) => {
+    const calculator = document.createElement('div');
+    calculator.className = 'kalkulator';
+    calculator.innerHTML = `
+        <div class="kalkulator-linijka">
+            <input type="text" class="product-name" placeholder="Nazwa adiuwantu">
+            <input type="button" class="add" value="+">
+            <input type="button" class="remove" value="-">
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+            <div class="value">
+                <input type="text" class="price" placeholder="Cena za 1 l/kg">
+                <div class="unit">zł/l, kg</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="value">
+                <input type="text" class="amount" placeholder="Ile l/kg na ha">
+                <div class="unit">l, kg/ha</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+            <div class="value">
+                <span class="result kalkulator-linijka-nazwa"></span>
+            </div>
+        </div>
+    `;
+
+    document.getElementById(parentId).appendChild(calculator);
+
+    calculator.querySelector('.price').addEventListener('input', calculate);
+    calculator.querySelector('.amount').addEventListener('input', calculate);
+    
+    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+    calculator.querySelector('.add').addEventListener('click', () => {
+        addCalculatorAdiuwant(parentId);
+    });
+};
+
+const addCalculatorBiopreparat = (parentId) => {
+    const calculator = document.createElement('div');
+    calculator.className = 'kalkulator';
+    calculator.innerHTML = `
+        <div class="kalkulator-linijka">
+            <input type="text" class="product-name" placeholder="Nazwa biopreparatu">
+            <input type="button" class="add" value="+">
+            <input type="button" class="remove" value="-">
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+            <div class="value">
+                <input type="text" class="price" placeholder="Cena za 1 l/kg">
+                <div class="unit">zł/l, kg</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="value">
+                <input type="text" class="amount" placeholder="Ile l/kg na ha">
+                <div class="unit">l, kg/ha</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+            <div class="value">
+                <span class="result kalkulator-linijka-nazwa"></span>
+            </div>
+        </div>
+    `;
+
+    document.getElementById(parentId).appendChild(calculator);
+
+    calculator.querySelector('.price').addEventListener('input', calculate);
+    calculator.querySelector('.amount').addEventListener('input', calculate);
+    
+    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+    calculator.querySelector('.add').addEventListener('click', () => {
+        addCalculatorBiopreparat(parentId);
     });
 };
 
@@ -273,17 +396,23 @@ const calculate = (event) => {
     amount = parseFloat(amount.replace(/\s+/g, ''));
 
     const result = (Math.round((price * amount)*100))/100;
-    calculator.querySelector('.result').textContent = result;
-};
+    if(isNaN(result)){
+        result = 0;
+    }
+    calculator.querySelector('.result').textContent = result + "zł/ha";
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-    addCalculator('srodki-ochrony-divs');
-    addCalculator('adiuwanty-divs');
-    addCalculator('biopreparaty-divs');
-    addCalculator('fertilizers-onleaf-divs');
+    addCalculatorPestManagement('srodki-ochrony-divs');
+    addCalculatorAdiuwant('adiuwanty-divs');
+    addCalculatorBiopreparat('biopreparaty-divs');
+    addCalculatorFertilizerOnleaf('fertilizers-onleaf-divs');
     addCalculatorFertilizer('fertilizers-divs');
     revenuesDisplay();
     costDisplay();
+
+    springCalculation();
+    revenuesCalculation();
 });
 
 document.querySelector('#reset').addEventListener('click', costDisplay)

@@ -86,9 +86,6 @@ const revenuesIDs = [
 ];
 
 const springNames = [
-  "koszt jednego zabiegu nawożenia",
-  "koszt jednego zabiegu opryskiwania",
-  "koszt jednego zabiegu opielania",
   "herbicyd z glifosatem",
   "adiuwant do glifosatu",
   "nasiona buraka"

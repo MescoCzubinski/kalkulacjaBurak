@@ -103,14 +103,14 @@ h1 {
 }
 .kalkulator{
   width: 320px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   margin-left: auto;
   margin-right: auto;
 }
 .kalkulator-linijka{
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .kalkulator-name{
   margin-left: 5px;

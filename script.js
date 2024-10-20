@@ -1,27 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-    costDisplay();
-    revenuesDisplay();
-    fertilizersDisplay();
-    pestManagementDisplay();
-
-    springCalculation();
-    revenuesCalculation();
-    fertilizersCalculation();
-    pestManagementCalculation();
-});
-
-document.querySelector('#reset').addEventListener('click', () => {
-    costDisplay();
-    revenuesDisplay();
-    fertilizersDisplay();
-    pestManagementDisplay();
-});
+document.querySelector('#reset').addEventListener('click', costDisplay)
+document.querySelector('#reset').addEventListener('click', revenuesDisplay)
 
 document.addEventListener('input', () => {
     springCalculation();
     revenuesCalculation();
-    fertilizersCalculation();
-    pestManagementCalculation();
 });
 
 function revenuesDisplay(){
@@ -123,219 +105,6 @@ function costDisplay() {
 }
 
 
-function fertilizersDisplay() {
-    let fertilizers = "";
-
-    for (let i = 0; i < 10; i++) {
-        fertilizers += `
-                <div>
-                    <input class="spring-cost-name" type="text" value="Nawóz ${i+1}"></div>
-                </div>
-                <div class="spring-cost">
-                    <label>
-                        <div class="value">
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${fertilizersValuesValue[i]}" id="nawoz-${i+1}-value"></input>
-                            <div class="unit">${fertilizersUnitsValue[i]}</div>
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${fertilizersValuesAmount[i]}" id="nawoz-${i+1}-amount"></input>
-                            <div class="unit">${fertilizersUnitsAmount[i]}</div>
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" id="nawoz-${i+1}-result"></input>
-                            <div class="unit">zł/ha</div>
-                        </div>
-                    </label>
-                </div>
-            `;
-    }
-
-    for (let i = 10; i < 14; i++) {
-        fertilizers += `
-                <div>
-                    <input class="spring-cost-name" type="text" value="Nawóz dolistny ${i-9}"></div>
-                </div>
-                <div class="spring-cost">
-                    <label>
-                        <div class="value">
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${fertilizersValuesValue[i]}" id="nawoz-${i+1}-value"></input>
-                            <div class="unit">${fertilizersUnitsValue[i]}</div>
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${fertilizersValuesAmount[i]}" id="nawoz-${i+1}-amount"></input>
-                            <div class="unit">${fertilizersUnitsAmount[i]}</div>
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" id="nawoz-${i+1}-result"></input>
-                            <div class="unit">zł/ha</div>
-                        </div>
-                    </label>
-                </div>
-            `;
-    }
-
-    document.querySelector('#fertilizers-divs').innerHTML = fertilizers;
-}
-
-let globalIndex = 0;
-function pestManagementDisplay(){
-    let pestManagement = "";
-    for(let j=0; j<4; j++){
-        for (let i = 0; i < 5; i++) {
-            pestManagement += `
-                    <div>
-                        <input class="spring-cost-name" type="text" value="Herbicyd ${i+1} do zabiegu ${j+1}"></div>
-                    </div>
-                    <div class="spring-cost">
-                        <label>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                                <div class="unit">zł/l, kg</div>
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                                <div class="unit">l, kg/ha</div>
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </label>
-                    </div>
-                `;
-                globalIndex++;
-        }
-        pestManagement += `
-            <div>
-                <input class="spring-cost-name" type="text" value="Adiuwant do zabiegu ${j+1}"></div>
-            </div>
-            <div class="spring-cost">
-                <label>
-                    <div class="value">
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                        <div class="unit"></div>
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                        <div class="unit"></div>
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                        <div class="unit">zł/ha</div>
-                    </div>
-                </label>
-            </div>
-        `;
-        globalIndex++;
-    }
-
-    for(let j=0; j<3; j++){
-        for (let i = 0; i < 3; i++) {
-            pestManagement += `
-                    <div>
-                        <input class="spring-cost-name" type="text" value="Fungicyd ${i+1} do zabiegu ${j+1}"></div>
-                    </div>
-                    <div class="spring-cost">
-                        <label>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                                <div class="unit">zł/l, kg</div>
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                                <div class="unit">l, kg/ha</div>
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </label>
-                    </div>
-                `;
-                globalIndex++;
-        }
-        pestManagement += `
-            <div>
-                <input class="spring-cost-name" type="text" value="Adiuwant do zabiegu ${j+1}"></div>
-            </div>
-            <div class="spring-cost">
-                <label>
-                    <div class="value">
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                        <div class="unit"></div>
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                        <div class="unit"></div>
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                        <div class="unit">zł/ha</div>
-                    </div>
-                </label>
-            </div>
-        `;
-        globalIndex++;
-    }
-
-    for (let i = 0; i < 5; i++) {
-        pestManagement += `
-                <div>
-                    <input class="spring-cost-name" type="text" value="Insektycyd ${i+1}"></div>
-                </div>
-                <div class="spring-cost">
-                    <label>
-                        <div class="value">
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                            <div class="unit">zł/l, kg</div>
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                            <div class="unit">l, kg/ha</div>
-                            <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                            <div class="unit">zł/ha</div>
-                        </div>
-                    </label>
-                </div>
-            `;
-            globalIndex++;
-    }
-
-    pestManagement += `
-    <div>
-        <input class="spring-cost-name" type="text" value="Moluskocyd (na ślimaki)"></div>
-    </div>
-    <div class="spring-cost">
-        <label>
-            <div class="value">
-                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                <div class="unit">zł/kg</div>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                <div class="unit">kg/ha</div>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                <div class="unit">zł/ha</div>
-            </div>
-        </label>
-    </div>
-    `;
-    globalIndex++;
-
-    pestManagement += `
-    <div>
-        <input class="spring-cost-name" type="text" value="Biopreparat 1"></div>
-    </div>
-    <div class="spring-cost">
-        <label>
-            <div class="value">
-                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                <div class="unit">zł/l, kg</div>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                <div class="unit">l, kg/ha</div>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                <div class="unit">zł/ha</div>
-            </div>
-        </label>
-    </div>
-    `;
-    globalIndex++;
-
-    pestManagement += `
-    <div>
-        <input class="spring-cost-name" type="text" value="Biopreparat 1"></div>
-    </div>
-    <div class="spring-cost">
-        <label>
-            <div class="value">
-                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementValue[globalIndex]}" id="pestManagement-${globalIndex}-value"></input>
-                <div class="unit">zł/l, kg</div>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${pestManagementAmount[globalIndex]}" id="pestManagement-${globalIndex}-amount"></input>
-                <div class="unit">l, kg/ha</div>
-                <input type="text" inputmode="numeric" pattern="[0-9]*" id="pestManagement-${globalIndex}-result"></input>
-                <div class="unit">zł/ha</div>
-            </div>
-        </label>
-    </div>
-    `;
-    globalIndex++;
-
-    document.querySelector('#pest-management-divs').innerHTML = pestManagement;
-}
-
-
 function revenuesCalculation() {
     const values = {};
   
@@ -410,101 +179,58 @@ function springCalculation() {
     });
 }
 
-
-function fertilizersCalculation() {
-    for(let i=0; i<14; i++) {
-        const elementValue = document.querySelector(`#nawoz-${i+1}-value`);
-        let value = elementValue.value;
-        value = textToNumber(value);
-        elementValue.value = value;
-        value = parseFloat(value.replace(/\s+/g, ''));
-
-        const elementAmount = document.querySelector(`#nawoz-${i+1}-amount`);
-        let amount = elementAmount.value;
-        amount = textToNumber(amount);
-        elementAmount.value = amount;
-        amount = parseFloat(amount.replace(/\s+/g, ''));
-
-        const elementResult = document.querySelector(`#nawoz-${i+1}-result`);
-
-        if(i < 10){
-            elementResult.value = (Number(value) * Number(amount)/1000);
-        } else {
-            elementResult.value = (Number(value) * Number(amount));
-        }
-    }
-}
-
-function pestManagementCalculation() {
-    for(let i=0; i<globalIndex; i++) {
-        const elementValue = document.querySelector(`#pestManagement-${i}-value`);
-        let value = elementValue.value;
-        value = textToNumber(value);
-        elementValue.value = value;
-        value = parseFloat(value.replace(/\s+/g, ''));
-
-        const elementAmount = document.querySelector(`#pestManagement-${i}-amount`);
-        let amount = elementAmount.value;
-        amount = textToNumber(amount);
-        elementAmount.value = amount;
-        amount = parseFloat(amount.replace(/\s+/g, ''));
-
-        const elementResult = document.querySelector(`#pestManagement-${i}-result`);
-
-        elementResult.value = (Number(value) * Number(amount));
-    }
-}
-
 const addCalculator = () => {
     const calculator = document.createElement('div');
-    calculator.className = 'calculator';
+    calculator.className = 'kalkulator';
     calculator.innerHTML = `
         <div class="kalkulator-linijka">
-            <input type="text" class="value">
+            <input type="text" class="value" placeholder="Nazwa środka ochrony roślin">
+            <input type="button" class="addCalculatorBtn" value="+">
+            <input type="button" class="remove" value="-">
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa">Wartość</div>
+            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
             <div class="value">
-                <input type="text" class="value">
+                <input type="text" class="value" placeholder="Cena za 1 l/kg">
                 <div class="unit">zł/l, kg</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa">Ilość/dawka</div>
+            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
             <div class="value">
-                <input type="text" class="amount">
+                <input type="text" class="amount" placeholder="Ile l/kg na ha">
                 <div class="unit">l, kg/ha</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa">Koszt</div>
+            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
             <div class="value">
-                <span class="result kalkulator-linijka-nazwa">0</span>
+                <span class="result kalkulator-linijka-nazwa"></span>
                 <div class="unit">zł/ha</div>
             </div>
         </div>
-        <div>
-            <button class="addCalculatorBtn">Dodaj</button>
-            <button class="remove">Usuń</button>
-        </div>
     `;
-    document.getElementById('calculators').appendChild(calculator);
+    
+    document.getElementById('srodki-ochrony-divs').appendChild(calculator);
+    document.getElementById('adiuwanty-divs').appendChild(calculator);
+    document.getElementById('biopreparaty-divs').appendChild(calculator);
 
     calculator.querySelector('.value input').addEventListener('input', calculate);
     calculator.querySelector('.amount').addEventListener('input', calculate);
-
+    
     calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
     calculator.querySelector('.addCalculatorBtn').addEventListener('click', addCalculator);
 };
 
 const calculate = (event) => {
-    const calculator = event.target.closest('.calculator');
+    const calculator = event.target.closest('.kalkulator'); // Corrected class name
     const input1 = parseFloat(calculator.querySelector('.value input').value) || 0;
     const input2 = parseFloat(calculator.querySelector('.amount').value) || 0;
     const result = input1 * input2;
-    calculator.querySelector('.result').textContent = result.toFixed(2); // Wyświetl wynik z dwoma miejscami po przecinku
+    calculator.querySelector('.result').textContent = result.toFixed(2);
 };
 
-// Po załadowaniu strony dodaj pierwszy kalkulator
 document.addEventListener('DOMContentLoaded', addCalculator);
+document.addEventListener('DOMContentLoaded', revenuesDisplay);
+document.addEventListener('DOMContentLoaded', costDisplay);
 

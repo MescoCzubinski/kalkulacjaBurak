@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+body{
+    font-family: 'Lato', sans-serif;
+}
+.Kalkulator{
+  width: 320px;
+  margin-bottom: 20px;
+}
+.kalkulator-linijka{
+    display: flex;
+    margin-bottom: 10px;
+}
+.kalkulator-name{
+    margin-left: 5px;
+}
+.kalkulator-linijka .value{
+    display: flex;
+}
+.kalkulator-linijka input[type="button"] {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-color: #505050;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #505050;
+    margin-left: 10px;
+    font-size: 30px;
+    text-align: center; 
+    line-height: 4px;
+    padding: 0;
+}
+
+.kalkulator-linijka .remove{
+    margin-right: 5px;
+
+    text-align: center;
+    vertical-align: middle;
+}
+.kalkulator-linijka .addCalculatorBtn{
+    
+    text-align: center;
+    vertical-align: middle;
+}
+.kalkulator-linijka input[type="text"]{
+    padding-left: 6px;
+}
+.kalkulator-linijka input[type="text"]::placeholder {
+    font-size: 15px;
+}
+.kalkulator-linijka-nazwa{
+    width: 135px;
+    margin-left: 8px;
+    position: relative;
+    top: -22px;
+    font-size: 22px;
+}
+.kalkulator-linijka{
+    height: 30px;
+}
+.kalkulator-linijka .result{
+    position: relative;
+    text-align: center;
+    padding-left: 5px;
+    top: 0px;
+}
+.value{
+  display: flex;
+  width: 180px;
+  margin-right: 8px;
+}
+input[type="text"]{
+  flex-grow: 1;
+  width: 0;
+  color: #505050;
+  border-style: solid;
+  border-color: #505050;
+  border-radius: 15px;
+  font-size: 18px;
+  padding-left: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="Kalkulator">
+        <div class="kalkulator-linijka">
+            <input type="text" class="value kalkulator-name" placeholder="Nazwa środka ochrony roślin">
+            <input type="button" class="addCalculatorBtn" value="+"></input>
+            <input type="button" class="remove" value="-"></input>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+            <div class="value">
+                <input type="text" class="value" placeholder="cena za 1 l/kg">
+                <div class="unit">zł/l, kg</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="value">
+                <input type="text" class="amount" placeholder="ile l/kg na ha">
+                <div class="unit">l, kg/ha</div>
+            </div>
+        </div>
+        <div class="kalkulator-linijka">
+            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+            <span class="result kalkulator-linijka-nazwa">210.25 zł/ha</span>
+        </div>
+    </div>
+</body>
+</html>

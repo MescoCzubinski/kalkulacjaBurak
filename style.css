@@ -101,29 +101,89 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-.kalkulatory{
-  width: 370px;
-  display: flex;
+.kalkulator{
+  width: 320px;
+  margin-bottom: 20px;
+
   margin-left: auto;
   margin-right: auto;
 }
 .kalkulator-linijka{
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+.kalkulator-name{
+  margin-left: 5px;
+}
+.kalkulator-linijka .value{
+  display: flex;
+}
+.kalkulator-linijka input[type="button"] {
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  border-color: #505050;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #505050;
+  margin-left: 10px;
+  font-size: 30px;
+  text-align: center; 
+  line-height: 4px;
+  padding: 0;
+}
+.kalkulator-linijka .remove{
+  margin-right: 5px;
+
+  text-align: center;
+  vertical-align: middle;
+}
+.kalkulator-linijka .addCalculatorBtn{
+  
+  text-align: center;
+  vertical-align: middle;
+}
+.kalkulator-linijka input[type="text"]{
+  padding-left: 6px;
+}
+.kalkulator-linijka input[type="text"]::placeholder {
+  font-size: 15px;
 }
 .kalkulator-linijka-nazwa{
-  text-align: left;
-  font-size: 20px;
-  width: 150px;
+  width: 135px;
+  margin-left: 8px;
+  position: relative;
+  top: -22px;
+  font-size: 22px;
+}
+.kalkulator-linijka{
+  height: 30px;
+}
+.kalkulator-linijka .result{
+  position: relative;
+  text-align: center;
+  padding-left: 5px;
+  top: 0px;
+}
+.value{
+  display: flex;
+  width: 180px;
+  margin-right: 8px;
+}
+input[type="text"]{
+  flex-grow: 1;
+  width: 0;
+  color: #505050;
+  border-style: solid;
+  border-color: #505050;
+  border-radius: 15px;
+  font-size: 18px;
+  padding-left: 4px;
 }
 .ecoscheme{
   margin-bottom: 20px !important;
 }
-.ecoscheme-checkbox{
-  width: 40px;
-  margin: 0;
-  border-radius: 20px;
-}
+
 .revenue-name, .supplement-name, .ecoscheme-name, .spring-cost-name{
   text-align: left;
   font-size: 20px;
@@ -140,27 +200,6 @@ h1 {
   display: flex;
   width: 370px;
 }
-.value{
-  display: flex;
-  width: 130px;
-}
-input{
-  height: 30px;
-  flex-grow: 1;
-  width: 0;
-  color: #505050;
-  border-style: solid;
-  border-color: #505050;
-  border-radius: 15px;
-  outline: none !important;
-  font-size: 18px;
-  padding-left: 4px;
-}
-input.visited{
-  color: black;
-  border-color: black;
-  outline: none !important;
-}
 .unit{
   padding-left: 3px;
   padding-right: 2px;
@@ -169,4 +208,14 @@ input.visited{
 }
 label{
   display: flex;
+}
+.ecoscheme input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+}
+input[type="text"] {
+  height: 30px;
+}
+.ecoscheme label{
+  height: 50px;
 }

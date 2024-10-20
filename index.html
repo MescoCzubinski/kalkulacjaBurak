@@ -22,56 +22,59 @@
                     </header>
 
                     <section>
-                        <div class="group-name">Przychody</div>
+                        <div class="group-name">
+                            <div class="group-name-text">Przychody</div>
+                            <input class="group-button" id="group-button-revenue" type="button" value="rozwiń"></input>
+                        </div>
                         <div class="revenues">
                             <div id="revenues-divs"></div>
                         </div>
                     </section>
 
                     <section>
-                        <div class="group-name">Dopłaty</div>
+                        <div class="group-name">
+                            <div class="group-name-text">Dopłaty</div>
+                            <input class="group-button" id="group-button-supplement" type="button" value="rozwiń"></input>
+                        </div>
                         <div class="supplements">
                             <div id="supplements-divs"></div>
                         </div>
                     </section>
 
                     <section>
-                        <div class="group-name">Ekoschematy</div>
+                        <div class="group-name">
+                            <div class="group-name-text">Ekoschematy</div>
+                            <input class="group-button" id="group-button-ecoscheme" type="button" value="rozwiń"></input>
+                        </div>
                         <div class="ecoschemes">
                             <div id="ecoschemes-divs"></div>
                         </div>
                     </section>
 
                     <section>
-                        <div class="results">
-                            <div id="results-name">Przychód:</div>
-                            <div id="results-divs"></div>
+                        <div class="revenue-display">
+                            <div class="group-name">
+                                <div class="group-name-text">Przychód:</div>
+                                <div id="display-revenue"></div>
+                            </div>
                         </div>
                     </section>
 
                     <article>
                         <section>
                             <div class="group-name">
-                                <p>Jesień - koszty</p>
-                                <div class="sub-group-name">
-                                    <p>Wartość</p>
-                                    <p>Ilość/dawka</p>
-                                    <p>Wynik</p>
-                                </div>
+                                <div class="group-name-text">Jesień - koszty</div>
+                                <input class="group-button" id="group-button-atumn-costs" type="button" value="rozwiń"></input>
                             </div>
-                            <div class="spring-costs">
+                            <div class="atumn-costs">
                                 <div id="atumn-costs-divs"></div>
                             </div>
                         </section>
 
                         <section>
                             <div class="group-name">
-                                <p>Wiosna - koszty</p>
-                                <div class="sub-group-name">
-                                    <p>Wartość</p>
-                                    <p>Ilość/dawka</p>
-                                    <p>Wynik</p>
-                                </div>
+                                <div class="group-name-text">Wiosna - koszty</div>
+                                <input class="group-button" id="group-button-spring-costs" type="button" value="rozwiń"></input>
                             </div>
                             <div class="spring-costs">
                                 <div id="spring-costs-divs"></div>
@@ -80,52 +83,136 @@
                     </article>
 
 
-                    <article> <!-- odżywianie roślin -->
-                        <!-- inny kalk cena za tonę, dawka t/ha -->
+                    <article> 
+                        <!-- odżywianie roślin -->
                         <section>
                             <div class="group-name">
                                 <div class="group-name-text">Nawozy</div>
-                                <input class="group-button" type="button" value="^"></input>
+                                <input class="group-button" id="group-button-fertilizer" type="button" value="rozwiń"></input>
                             </div>
                             <div class="kalkulatory">
-                                <div id="fertilizers-divs"></div>
+                                <div id="fertilizer-divs"></div>
                             </div>
                         </section>
 
-                        <!-- inny kalk cena za litr/kilogram, dawka l, kg/ha -->
                         <section>
-                            <div class="group-name">Nawozy dolistne</div>
+                            <div class="group-name">
+                                <div class="group-name-text">Nawozy dolistne</div>
+                                <input class="group-button" id="group-button-fertilizer-onleaf" type="button" value="rozwiń"></input>
+                            </div>
                             <div class="kalkulatory">
-                                <div id="fertilizers-onleaf-divs"></div>
+                                <div id="fertilizer-onleaf-divs"></div>
                             </div>
                         </section>
 
-                        <!-- zabieg nawożenia -->
-                    </article>
+                        <section>
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Koszt zabiegu nawożenia</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*">
+                                        <div class="unit">razy/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <span class="result kalkulator-linijka-nazwa"></span>
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     
-                    <article> <!-- ochrona roślin-->
+                        <!-- ochrona roślin-->
                         <section>
-                            <div class="group-name">Środki ochrony roślin</div>
+                            <div class="group-name">
+                                <div class="group-name-text">Środki ochrony roślin</div>
+                                <input class="group-button" id="group-button-pest-management" type="button" value="rozwiń"></input>
+                            </div>
                             <div class="kalkulatory">
-                                <div id="srodki-ochrony-divs"></div>
+                                <div id="pest-management-divs"></div>
                             </div>
                         </section>
     
                         <section>
-                            <div class="group-name">Adiuwant</div>
+                            <div class="group-name">
+                                <div class="group-name-text">Adiuwant</div>
+                                <input class="group-button" id="group-button-adiuwant" type="button" value="rozwiń"></input>
+                            </div>
                             <div class="kalkulatory">
-                                <div id="adiuwanty-divs"></div>
+                                <div id="adiuwant-divs"></div>
                             </div>
                         </section>
     
                         <section>
-                            <div class="group-name">Biopreparat</div>
+                            <div class="group-name">
+                                <div class="group-name-text">Biopreparat</div>
+                                <input class="group-button" id="group-button-biopreparat" type="button" value="rozwiń"></input>
+                            </div>
                             <div class="kalkulatory">
-                                <div id="biopreparaty-divs"></div>
+                                <div id="biopreparat-divs"></div>
                             </div>
                         </section>
 
-                        <!-- zabieg oprysku-->
+                        <section>
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Koszt zabiegu nawożenia</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*">
+                                        <div class="unit">razy/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <span class="result kalkulator-linijka-nazwa"></span>
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="group-name">
+                                <div class="group-name-text">Zbiór</div>
+                                <input class="group-button" id="group-button-harvest" type="button" value="rozwiń"></input>
+                            </div>
+                            <div class="kalkulatory">
+                                <div id="harvest-divs"></div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="group-name">
+                                <div class="group-name-text">Zarządzanie</div>
+                                <input class="group-button" id="group-button-management" type="button" value="rozwiń"></input>
+                            </div>
+                            <div class="kalkulatory">
+                                <div id="management-divs"></div>
+                            </div>
+                        </section>
                     </article>
 
                 </div>

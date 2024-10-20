@@ -64,10 +64,20 @@ h1 {
   display: flex;
 }
 .group-name-text{
-  width: 360px;
+  width: 330px;
+}
+.revenue-display .group-name{
+  border-top: solid 2px #505050;
+  border-bottom: solid 2px #505050;
+}
+.revenue-display .group-name-text{
+  width: 260px;
+}
+.display-revenue{
+  text-align: center;
 }
 .group-button{
-  width: 40px;
+  width: 70px;
   height: 30px;
 
   font-size: 17px;
@@ -76,25 +86,7 @@ h1 {
   border: 2px solid #505050;
   border-radius: 5px;
 
-}
-.sub-group-name{
-  display: flex;
-  justify-content: space-between;
-}
-.sub-group-name p{
-  flex: 1;
-  text-align: center;
-}
-.revenues, .supplements, .results, .spring-costs{
-  width: 330px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.results{
-  width: 400px;
-  display: flex;
-  font-size: 20px;
-  width: 0px;
+  background-color: transparent;
 }
 .revenue, .supplement, .spring-cost{
   width: 330px;
@@ -143,10 +135,15 @@ h1 {
   background-color: transparent;
   color: #505050;
   margin-left: 10px;
+  margin-top: 3px;
   font-size: 30px;
   text-align: center; 
   line-height: 4px;
   padding: 0;
+}
+input:hover{
+  border-color: rgb(0, 132, 55);
+  color: rgb(0, 132, 55);
 }
 .kalkulator-linijka .remove{
   margin-right: 5px;
@@ -175,16 +172,14 @@ h1 {
 .kalkulator-linijka{
   height: 30px;
 }
-.kalkulator-linijka .result{
-  position: relative;
-  text-align: center;
-  padding-left: 5px;
-  top: 0px;
-}
 .value{
   display: flex;
-  width: 180px;
+  width: 160px;
   margin-right: 8px;
+}
+.value .result{
+  position: relative;
+  top: 1px
 }
 input[type="text"]{
   flex-grow: 1;
@@ -203,7 +198,9 @@ input[type="text"]{
 .revenue-name, .supplement-name, .ecoscheme-name, .spring-cost-name{
   text-align: left;
   font-size: 20px;
-  width: 200px;
+  width: 160px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .spring-cost-name{
   width: 370px;
@@ -216,6 +213,14 @@ input[type="text"]{
   display: flex;
   width: 370px;
 }
+.spring-costs-inputs{
+  margin-left: auto;
+  margin-right: auto;
+}
+.ecoscheme .value{
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .unit{
   padding-left: 3px;
   padding-right: 2px;
@@ -225,13 +230,41 @@ input[type="text"]{
 label{
   display: flex;
 }
-.ecoscheme input[type="checkbox"] {
+input[type="checkbox"] {
   width: 30px;
   height: 30px;
+  -webkit-appearance: none; 
+  appearance: none;
+  border: 2px solid black;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+  top: 10px
 }
+
+input[type="checkbox"]:checked {
+  background-color: rgb(0, 132, 55);
+  border-color: rgb(0, 132, 55);
+  position: relative;
+}
+
+input[type="checkbox"]:checked::before {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  content: '+';
+  top: -4px;
+  left: 4px;
+}
+
 input[type="text"] {
   height: 30px;
 }
 .ecoscheme label{
   height: 50px;
+}
+.none{
+  display: none;
 }

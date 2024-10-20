@@ -86,15 +86,15 @@ const revenuesIDs = [
 ];
 
 const springNames = [
-  "herbicyd z glifosatem",
-  "adiuwant do glifosatu",
-  "nasiona buraka"
+  "Herbicyd z glifosatem:",
+  "Adiuwant do glifosatu:",
+  "Nasiona buraka:"
 ];
 const springNamesOneVaue = [
-  "płytka uprawa wiosenna",
-  "uprawa przedsiewna",
-  "mulczowanie międzyplonu",
-  "siew punktowy lub strip-till"
+  "Płytka uprawa wiosenna:",
+  "Uprawa przedsiewna:",
+  "Mulczowanie międzyplonu:",
+  "Siew punktowy lub strip-till:"
 ]
 const springValues = [
   48.00,
@@ -149,3 +149,16 @@ const springUnitsOneVaue = [
   "zł/ha",
   "zł/ha"
 ]
+
+
+// const numberInputs = document.querySelectorAll('input[type=text]');
+// numberInputs.forEach(input => {
+//     input.addEventListener('blur', function() {
+//         if (this.value){
+//             this.classList.add('visited');
+//         }
+//         else{
+//             this.classList.remove('visited');
+//         }
+//     });
+// });

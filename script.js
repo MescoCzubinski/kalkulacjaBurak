@@ -407,12 +407,15 @@ document.addEventListener('DOMContentLoaded', () => {
     addCalculatorAdiuwant('adiuwanty-divs');
     addCalculatorBiopreparat('biopreparaty-divs');
     addCalculatorFertilizerOnleaf('fertilizers-onleaf-divs');
-    addCalculatorFertilizer('fertilizers-divs');
     revenuesDisplay();
     costDisplay();
 
     springCalculation();
     revenuesCalculation();
+});
+
+document.querySelector("#group-button").addEventListener('click', () => {
+    addCalculatorFertilizer('fertilizers-divs');
 });
 
 document.querySelector('#reset').addEventListener('click', costDisplay)

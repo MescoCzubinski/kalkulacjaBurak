@@ -60,6 +60,22 @@ h1 {
   padding-bottom: 5px;
   border-top: solid 1px #505050;
   border-bottom: solid 1px #505050;
+
+  display: flex;
+}
+.group-name-text{
+  width: 360px;
+}
+.group-button{
+  width: 40px;
+  height: 30px;
+
+  font-size: 17px;
+  font-weight: bold;
+  color: #505050;
+  border: 2px solid #505050;
+  border-radius: 5px;
+
 }
 .sub-group-name{
   display: flex;

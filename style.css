@@ -66,6 +66,10 @@ h1 {
 .group-name-text{
   width: 330px;
 }
+.group-name-text-only{
+  padding-left: 40px;
+  width: 330px;
+}
 .revenue-display .group-name{
   border-top: solid 2px #505050;
   border-bottom: solid 2px #505050;
@@ -199,7 +203,7 @@ input[type="text"]{
   margin-bottom: 20px !important;
 }
 
-.revenue-name, .supplement-name, .ecoscheme-name, .spring-cost-name{
+.revenue-name, .supplement-name, .ecoscheme-name{
   text-align: left;
   font-size: 20px;
   width: 160px;
@@ -208,10 +212,13 @@ input[type="text"]{
 }
 .spring-cost-name{
   width: 370px;
+  font-weight: bold;
   text-align: left;
   margin-bottom: 20px;
   margin-top: 6px;
   font-size: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .spring-cost .value{
   display: flex;

@@ -38,7 +38,7 @@ function revenuesDisplay(){
     ecoscheme += `
                     <div class="ecoscheme">
                         <label>
-                            <input type="checkbox" checked class="ecoscheme-checkbox" id="${revenuesIDs[revenuesInputIndex] + "-checkbox"}"></input>
+                            <input type="checkbox" class="ecoscheme-checkbox" id="${revenuesIDs[revenuesInputIndex] + "-checkbox"}"></input>
                             <div class="ecoscheme-name">${ecoschemes[i]}</div> 
                             <div class="value">
                                 <input type="text" inputmode="numeric" pattern="[0-9]*" value="${ecoschemesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
@@ -72,7 +72,7 @@ function springDisplay() {
                 </div>
             </div>
             <div class="kalkulator-linijka">
-                <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+                <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
                 <div class="value">
                     <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="${springValueValue[i]}" id="${springUnitsIDs[i]}-amount">
                     <div class="unit">${springUnitsValue[i]}</div>
@@ -85,17 +85,16 @@ function springDisplay() {
                 </div>
             </div>
         </div>
-
     `;
     }
-
+    springCosts += '<div class="kalkulator"></div>'
     for (let i = 0; i < springNamesOneVaue.length; i++) {
         springCosts += `
             <div class="revenue">
                 <label>
                     <div class="revenue-name">${springNamesOneVaue[i]}</div>
                     <div class="value">
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${springValuesOneVaue[i]}"></input>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${springValuesOneVaue[i]}" id="wiosna-jedna-wartosc-${i}"></input>
                         <div class="unit">${springUnitsOneVaue[i]}</div>
                     </div>
                 </label>
@@ -138,12 +137,18 @@ const addCalculatorFertilizer = (parentId) => {
         </div>
     `;
 
-    document.getElementById(parentId).appendChild(calculator);
+    const parentElement = document.getElementById(parentId);
+    parentElement.appendChild(calculator);
 
     calculator.querySelector('.price').addEventListener('input', calculate);
     calculator.querySelector('.amount').addEventListener('input', calculate);
-    
-    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+
+    calculator.querySelector('.remove').addEventListener('click', () => {
+        if (parentElement.getElementsByClassName('kalkulator').length > 1) {
+            calculator.remove();
+        }
+    });
+
     calculator.querySelector('.add').addEventListener('click', () => {
         addCalculatorFertilizer(parentId);
     });
@@ -180,14 +185,20 @@ const addCalculatorFertilizerOnleaf = (parentId) => {
         </div>
     `;
 
-    document.getElementById(parentId).appendChild(calculator);
+    const parentElement = document.getElementById(parentId);
+    parentElement.appendChild(calculator);
 
     calculator.querySelector('.price').addEventListener('input', calculate);
     calculator.querySelector('.amount').addEventListener('input', calculate);
-    
-    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+
+    calculator.querySelector('.remove').addEventListener('click', () => {
+        if (parentElement.getElementsByClassName('kalkulator').length > 1) {
+            calculator.remove();
+        }
+    });
+
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorFertilizerOnleaf(parentId);
+        addCalculatorFertilizer(parentId);
     });
 };
 
@@ -222,14 +233,20 @@ const addCalculatorPestManagement = (parentId) => {
         </div>
     `;
 
-    document.getElementById(parentId).appendChild(calculator);
+    const parentElement = document.getElementById(parentId);
+    parentElement.appendChild(calculator);
 
     calculator.querySelector('.price').addEventListener('input', calculate);
     calculator.querySelector('.amount').addEventListener('input', calculate);
-    
-    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+
+    calculator.querySelector('.remove').addEventListener('click', () => {
+        if (parentElement.getElementsByClassName('kalkulator').length > 1) {
+            calculator.remove();
+        }
+    });
+
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorPestManagement(parentId);
+        addCalculatorFertilizer(parentId);
     });
 };
 
@@ -264,14 +281,20 @@ const addCalculatorAdiuwant = (parentId) => {
         </div>
     `;
 
-    document.getElementById(parentId).appendChild(calculator);
+    const parentElement = document.getElementById(parentId);
+    parentElement.appendChild(calculator);
 
     calculator.querySelector('.price').addEventListener('input', calculate);
     calculator.querySelector('.amount').addEventListener('input', calculate);
-    
-    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+
+    calculator.querySelector('.remove').addEventListener('click', () => {
+        if (parentElement.getElementsByClassName('kalkulator').length > 1) {
+            calculator.remove();
+        }
+    });
+
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorAdiuwant(parentId);
+        addCalculatorFertilizer(parentId);
     });
 };
 
@@ -306,17 +329,60 @@ const addCalculatorBiopreparat = (parentId) => {
         </div>
     `;
 
-    document.getElementById(parentId).appendChild(calculator);
+    const parentElement = document.getElementById(parentId);
+    parentElement.appendChild(calculator);
 
     calculator.querySelector('.price').addEventListener('input', calculate);
     calculator.querySelector('.amount').addEventListener('input', calculate);
-    
-    calculator.querySelector('.remove').addEventListener('click', () => calculator.remove());
+
+    calculator.querySelector('.remove').addEventListener('click', () => {
+        if (parentElement.getElementsByClassName('kalkulator').length > 1) {
+            calculator.remove();
+        }
+    });
+
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorBiopreparat(parentId);
+        addCalculatorFertilizer(parentId);
     });
 };
 
+const calculate = (event) => {
+    const calculator = event.target.closest('.kalkulator');
+
+    let elementPrice = calculator.querySelector('.price');
+    let price = elementPrice.value;
+    price = textToNumber(price);
+    elementPrice.value = price;
+    price = parseFloat(price.replace(/\s+/g, ''));
+
+    let elementAmount = calculator.querySelector('.amount');
+    let amount = elementAmount.value;
+    amount = textToNumber(amount);
+    elementAmount.value = amount;
+    amount = parseFloat(amount.replace(/\s+/g, ''));
+
+    let result = (Math.round((price * amount) * 100)) / 100;
+    if (isNaN(result)) {
+        result = 0;
+    }
+
+    calculator.querySelector('.result').textContent = result + " zł/ha";
+    calculator.setAttribute('data-result', result);  // Store the result in a data attribute
+}
+
+const getFinalResult = (parentId) => {
+    const parentElement = document.getElementById(parentId);
+    const calculators = parentElement.getElementsByClassName('kalkulator');
+    let totalResult = 0;
+
+    for (let calculator of calculators) {
+        const result = parseFloat(calculator.getAttribute('data-result')) || 0;
+        totalResult += result;
+    }
+
+    totalResult = Math.round(totalResult * 100) / 100;  // Round the final result
+    return totalResult;
+};
 
 function revenuesCalculation() {
     const values = {};
@@ -369,6 +435,87 @@ function revenuesCalculation() {
 
     let totalResult = (revenueResult + supplementResult) / 100; 
     document.querySelector('#display-revenue').innerHTML = totalResult.toFixed(2) + " zł/ha"; 
+}
+
+function soilCalculation(){
+    const elementValue = document.querySelector('#badania-gleby-value');
+    const elementAmount = document.querySelector('#badania-gleby-amount');
+    const elementYears = document.querySelector('#badania-gleby-years');
+    const elementResult = document.querySelector('#badania-gleby-result');
+
+    elementResult.innerHTML = Math.round((Number(elementValue.value) * Number(elementAmount.value))/Number(elementYears.value)*100)/100 + " zł/ha"
+}
+
+function costsCalculation() {
+    const elementBadaniaGleby = document.querySelector('#badania-gleby-result');
+    const elementWapno = document.querySelector('#wapno-result');
+    const elementPrzedplon = document.querySelector('#uprawa-przedplon-value');
+    const elementNawozNaturalny = document.querySelector('#nawoz-naturalny-result');
+    const elementMiedzyplon = document.querySelector('#miedzyplon-result');
+    const elementUprawaGleboka = document.querySelector('#uprawa-gleboka-resume');
+
+    const elementHerbicydGlifosad = document.querySelector('#herbicyd-z-glifosatem-result');
+    const elementAdiuwantGlifosad = document.querySelector('#adiuwant-do-glifosatu-result');
+    const elementNasionaBuraka = document.querySelector('#nasiona-buraka-result');
+    const elementUprawaPlytka = document.querySelector('#wiosna-jedna-wartosc-0');
+    const elementUprawaPrzedsiewna = document.querySelector('#wiosna-jedna-wartosc-1');
+    const elementMulczowanie = document.querySelector('#wiosna-jedna-wartosc-2');
+    const elementSiewPunktowe = document.querySelector('#wiosna-jedna-wartosc-3');
+
+    const elementZabiegNawozenia = document.querySelector('#fertilizer-measure-result');
+    const elementZabiegOpryskiwania = document.querySelector('#pest-management-measure-result');
+
+    const elementZbior = document.querySelector('#harvest-cost');
+    const elementZaladunek = document.querySelector('#onloading-cost');
+    const elementTransport = document.querySelector('#transport-cost');
+    const elementOkryciePryzmy = document.querySelector('#cover-cost');
+
+    const elementUbezpieczenie = document.querySelector('#insurance-cost');
+    const elementPodatek = document.querySelector('#tax-cost');
+    const elementCzynsz = document.querySelector('#rent-cost');
+
+    const elementPlonTony = document.querySelector('#zakladany-plon');
+
+    //jesień
+    let totalResult =  (Number(elementBadaniaGleby.innerHTML.replace(" zł/ha", "")) + 
+                        Number(elementWapno.innerHTML.replace(" zł/ha", "")) +
+                        Number(elementNawozNaturalny.innerHTML.replace(" zł/ha", "")) +
+                        Number(elementMiedzyplon.innerHTML.replace(" zł/ha", "")) +
+                        Number(elementPrzedplon.value) +
+                        Number(elementUprawaGleboka.value))
+
+    //wiosna
+    totalResult +=   (Number(elementHerbicydGlifosad.innerHTML.replace(" zł/ha", "")) + 
+                        Number(elementAdiuwantGlifosad.innerHTML.replace(" zł/ha", "")) +
+                        Number(elementNasionaBuraka.innerHTML.replace(" zł/ha", "")) +
+                        Number(elementUprawaPlytka.value) +
+                        Number(elementUprawaPrzedsiewna.value) +
+                        Number(elementMulczowanie.value) +
+                        Number(elementSiewPunktowe.value))
+
+    //zabiegi oprysków
+    totalResult += (Number(elementZabiegNawozenia.innerHTML.replace(" zł/ha", "")) + 
+                    Number(elementZabiegOpryskiwania.innerHTML.replace(" zł/ha", "")))
+
+
+    //zbiór
+    totalResult +=   (Number(elementZbior.value) + ((Number(elementPlonTony.value)) * (Number(elementZaladunek.value) + Number(elementTransport.value) + Number(elementOkryciePryzmy.value))))
+
+    //zarzadzanie
+    totalResult +=   (Number(elementUbezpieczenie.value) + Number(elementPodatek.value) + Number(elementCzynsz.value))
+
+
+    const nawozyTotal = getFinalResult('fertilizer-divs');
+    const nawozyDolistneTotal = getFinalResult('fertilizer-onleaf-divs');
+    const ochronaTotal = getFinalResult('pest-management-divs');
+    const adiuwantTotal = getFinalResult('adiuwant-divs');
+    const biopreparatTotal = getFinalResult('biopreparat-divs');
+
+    totalResult += nawozyTotal + nawozyDolistneTotal + ochronaTotal + adiuwantTotal + biopreparatTotal;
+
+    totalResult = Math.round(totalResult*100)/100;
+    console.log(totalResult)
+    document.querySelector('#display-costs').innerHTML = totalResult + " zł/ha"; 
 }
 
 function springCalculation() {
@@ -427,45 +574,22 @@ function longCalculation(){
 
         const elementResult = document.querySelector(`#${id}-result`);
 
-        let calculation = 0;
-        if(measure){
-            calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)/Number(years);
-        } else {
-            calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)))/Number(years);
-        }
-        console.log(calculation)
+
+        calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)/Number(years);
+
         if(!isNaN(calculation)) { 
             elementResult.innerHTML = calculation.toFixed(2) + " zł/ha";
         }
     });
 }
 
-const calculate = (event) => {
-    const calculator = event.target.closest('.kalkulator');
-
-    let elementPrice = calculator.querySelector('.price')
-    let price = elementPrice.value;
-    price = textToNumber(price);
-    elementPrice.value = price;
-    price = parseFloat(price.replace(/\s+/g, ''));
-    
-    let elementAmount = calculator.querySelector('.amount')
-    let amount = elementAmount.value;
-    amount = textToNumber(amount);
-    elementAmount.value = amount;
-    amount = parseFloat(amount.replace(/\s+/g, ''));
-
-    const result = (Math.round((price * amount)*100))/100;
-    if(isNaN(result)){
-        result = 0;
-    }
-    calculator.querySelector('.result').textContent = result + " zł/ha";
-}
-
 document.addEventListener('input', () => {
-    revenuesCalculation();
+    soilCalculation();
     springCalculation();
     longCalculation();
+
+    revenuesCalculation();
+    costsCalculation();
 });
 
 document.querySelector('#reset').addEventListener('click', () => {
@@ -478,9 +602,8 @@ document.querySelector('#reset').addEventListener('click', () => {
     revenuesDisplay();
     springDisplay();
 
-    springCalculation();
+    soilCalculation();
     revenuesCalculation();
-    longCalculation();
 })
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -493,8 +616,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revenuesDisplay();
     springDisplay();
-
-    revenuesCalculation();
 
     const groups = [
         { buttonId: 'group-button-revenue', divId: 'revenues-divs' },
@@ -541,6 +662,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector(`#autumn-costs-divs`).classList.contains('none')){
         longCalculation();
     }
+
+    soilCalculation();
+    revenuesCalculation();
+    costsCalculation();
 });
 
 

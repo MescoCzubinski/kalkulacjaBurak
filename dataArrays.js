@@ -120,12 +120,12 @@ const springValueValue = [
 ];
 
 const springUnitsIDs = [
-  "koszt-jednego-zabiegu-nawozenia",
-  "koszt-jednego-zabiegu-opryskiwania",
-  "koszt-jednego-zabiegu-opielania",
   "herbicyd-z-glifosatem",
   "adiuwant-do-glifosatu",
-  "nasiona-buraka"
+  "nasiona-buraka",
+  "badania-gleby",
+  "fertilizer-measure",
+  "pest-management-measure"
 ];
 const springUnitsValue = [
   "razy/ha",
@@ -148,6 +148,11 @@ const springUnitsOneVaue = [
   "zł/ha",
   "zł/ha",
   "zł/ha"
+]
+const autumnUnitsIDs = [
+  "wapno",
+  "nawoz-naturalny",
+  "miedzyplon",
 ]
 
 

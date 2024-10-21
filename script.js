@@ -82,7 +82,6 @@ function springDisplay() {
                 <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
                 <div class="value">
                     <span class="result kalkulator-linijka-nazwa" id="${springUnitsIDs[i]}-result"></span>
-                    <div class="unit">${springUnits[i]}</div>
                 </div>
             </div>
         </div>
@@ -107,86 +106,6 @@ function springDisplay() {
     document.querySelector('#spring-costs-divs').innerHTML = springCosts;
 }
 
-function harvestDisplay(){
-    let harvestCost = "";
-
-    harvestCost += `
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Zbiór:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="1200"></input>
-                    <div class="unit">zł/ha</div>
-                </div>
-            </label>
-        </div>
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Załadunek:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="2.5"></input>
-                    <div class="unit">zł/t</div>
-                </div>
-            </label>
-        </div>
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Transport:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="10"></input>
-                    <div class="unit">zł/t</div>
-                </div>
-            </label>
-        </div>
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Okrycie pryzmy:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="2"></input>
-                    <div class="unit">zł/t</div>
-                </div>
-            </label>
-        </div>
-                `;
-
-    document.querySelector('#harvest-divs').innerHTML = harvestCost;
-}
-
-function managementDisplay(){
-    let managementCost = "";
-
-    managementCost += `
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Ubezpieczenie:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="120"></input>
-                    <div class="unit">zł/ha</div>
-                </div>
-            </label>
-        </div>
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Załadunek:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="350"></input>
-                    <div class="unit">zł/ha</div>
-                </div>
-            </label>
-        </div>
-        <div class="revenue">
-            <label>
-                <div class="revenue-name">Transport:</div>
-                <div class="value">
-                    <input type="text" inputmode="numeric" pattern="[0-9]*" value="1500"></input>
-                    <div class="unit">zł/ha</div>
-                </div>
-            </label>
-        </div>
-                `;
-
-    document.querySelector('#management-divs').innerHTML = managementCost;
-}
 
 const addCalculatorFertilizer = (parentId) => {
     const calculator = document.createElement('div');
@@ -449,9 +368,8 @@ function revenuesCalculation() {
     supplementResult = Math.round(supplementResult * 100);
 
     let totalResult = (revenueResult + supplementResult) / 100; 
-    document.querySelector('#display-revenue').innerHTML = totalResult.toFixed(2); 
+    document.querySelector('#display-revenue').innerHTML = totalResult.toFixed(2) + " zł/ha"; 
 }
-
 
 function springCalculation() {
     springUnitsIDs.forEach((id) => {
@@ -468,7 +386,57 @@ function springCalculation() {
         amount = parseFloat(amount.replace(/\s+/g, ''));
 
         const elementResult = document.querySelector(`#${id}-result`);
-        elementResult.innerHTML = (Number(value) * Number(amount));
+        let calculation = (Number(value) * Number(amount))
+        if(!isNaN(calculation)) { 
+            elementResult.innerHTML = calculation + " zł/ha";
+        }
+    });
+}
+
+function longCalculation(){
+    autumnUnitsIDs.forEach((id) => {
+        const elementValue = document.querySelector(`#${id}-value`);
+        let value = elementValue.value;
+        value = textToNumber(value);
+        elementValue.value = value;
+        value = parseFloat(value.replace(/\s+/g, ''));
+
+        const elementAmount = document.querySelector(`#${id}-amount`);
+        let amount = elementAmount.value;
+        amount = textToNumber(amount);
+        elementAmount.value = amount;
+        amount = parseFloat(amount.replace(/\s+/g, ''));
+
+        const elementYears = document.querySelector(`#${id}-years`);
+        let years = elementYears.value;
+        years = textToNumber(years);
+        elementYears.value = years;
+        years = parseFloat(years.replace(/\s+/g, ''));
+
+        const elementMeasure = document.querySelector(`#${id}-measure`);
+        let measure = elementMeasure.value;
+        measure = textToNumber(measure);
+        elementMeasure.value = measure;
+        measure = parseFloat(measure.replace(/\s+/g, ''));
+
+        const elementOnload = document.querySelector(`#${id}-onload`);
+        let onload = elementOnload.value;
+        onload = textToNumber(onload);
+        elementOnload.value = onload;
+        onload = parseFloat(onload.replace(/\s+/g, ''));
+
+        const elementResult = document.querySelector(`#${id}-result`);
+
+        let calculation = 0;
+        if(measure){
+            calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)/Number(years);
+        } else {
+            calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)))/Number(years);
+        }
+        console.log(calculation)
+        if(!isNaN(calculation)) { 
+            elementResult.innerHTML = calculation.toFixed(2) + " zł/ha";
+        }
     });
 }
 
@@ -491,12 +459,13 @@ const calculate = (event) => {
     if(isNaN(result)){
         result = 0;
     }
-    calculator.querySelector('.result').textContent = result + "zł/ha";
+    calculator.querySelector('.result').textContent = result + " zł/ha";
 }
 
 document.addEventListener('input', () => {
     revenuesCalculation();
     springCalculation();
+    longCalculation();
 });
 
 document.querySelector('#reset').addEventListener('click', () => {
@@ -508,11 +477,10 @@ document.querySelector('#reset').addEventListener('click', () => {
 
     revenuesDisplay();
     springDisplay();
-    harvestDisplay();
-    managementDisplay();
 
     springCalculation();
     revenuesCalculation();
+    longCalculation();
 })
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -525,8 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revenuesDisplay();
     springDisplay();
-    harvestDisplay();
-    managementDisplay();
 
     revenuesCalculation();
 
@@ -571,6 +537,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(document.querySelector(`#spring-costs-divs`).classList.contains('none')){
         springCalculation();
+    }
+    if(document.querySelector(`#autumn-costs-divs`).classList.contains('none')){
+        longCalculation();
     }
 });
 

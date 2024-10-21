@@ -55,7 +55,7 @@ function revenuesDisplay(){
     document.querySelector('#ecoschemes-divs').innerHTML = ecoscheme;
 }
 
-function costDisplay() {
+function springDisplay() {
     let springCosts = "";
 
     for (let i = 0; i < springNames.length; i++) {
@@ -507,7 +507,7 @@ document.querySelector('#reset').addEventListener('click', () => {
     addCalculatorBiopreparat('biopreparat-divs');
 
     revenuesDisplay();
-    costDisplay();
+    springDisplay();
     harvestDisplay();
     managementDisplay();
 
@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addCalculatorBiopreparat('biopreparat-divs');
 
     revenuesDisplay();
-    costDisplay();
+    springDisplay();
     harvestDisplay();
     managementDisplay();
 
@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { buttonId: 'group-button-revenue', divId: 'revenues-divs' },
         { buttonId: 'group-button-supplement', divId: 'supplements-divs' },
         { buttonId: 'group-button-ecoscheme', divId: 'ecoschemes-divs' },
-        { buttonId: 'group-button-atumn-costs', divId: 'atumn-costs-divs' },
+        { buttonId: 'group-button-autumn-costs', divId: 'autumn-costs-divs' },
         { buttonId: 'group-button-spring-costs', divId: 'spring-costs-divs' },
         { buttonId: 'group-button-fertilizer', divId: 'fertilizer-divs' },
         { buttonId: 'group-button-fertilizer-onleaf', divId: 'fertilizer-onleaf-divs' },

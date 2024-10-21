@@ -4,7 +4,7 @@ const revenues = [
   "plon pozakontraktowy",
   "ilość wysłodków (10% s.m) na sprzedaż",
   "cena buraków kontraktowych",
-  "cena buraków pozakontraktowych",
+  "cena buraków poza kontraktem",
   "cena wysłodków"
 ];
 const revenuesUnits = [

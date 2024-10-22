@@ -59,7 +59,6 @@ const ecoschemesValues = [
   134.60,
   810.96,
   297.61,
-  130.00
 ];
 const revenuesIDs = [
   "zakladany-plon",

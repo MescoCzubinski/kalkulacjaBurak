@@ -340,14 +340,14 @@
                 <div class="kalkulator-linijka">
                     <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                     <div class="value">
-                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-value" placeholder="koszt na ha">
+                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-value" >
                         <div class="unit">zł/ha</div>
                     </div>
                 </div>
                 <div class="kalkulator-linijka">
                     <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
                     <div class="value">
-                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-amount" placeholder="nawożenia">
+                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-amount">
                         <div class="unit">razy/ha</div>
                     </div>
                 </div>
@@ -402,14 +402,14 @@
                 <div class="kalkulator-linijka">
                     <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                     <div class="value">
-                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-value" placeholder="koszt na ha">
+                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-value">
                         <div class="unit">zł/ha</div>
                     </div>
                 </div>
                 <div class="kalkulator-linijka">
                     <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
                     <div class="value">
-                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-amount" placeholder="opryski">
+                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-amount">
                         <div class="unit">razy/ha</div>
                     </div>
                 </div>
@@ -431,14 +431,14 @@
                 <div class="kalkulator-linijka">
                     <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                     <div class="value">
-                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="opielanie-measure-value" placeholder="koszt na ha">
+                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="opielanie-measure-value">
                         <div class="unit">zł/ha</div>
                     </div>
                 </div>
                 <div class="kalkulator-linijka">
                     <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
                     <div class="value">
-                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="opielanie-measure-amount" placeholder="opielanie">
+                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="opielanie-measure-amount">
                         <div class="unit">razy/ha</div>
                     </div>
                 </div>
@@ -544,6 +544,17 @@
                 <div class="group-name">
                     <div class="group-name-text-result">Koszt:</div>
                     <div id="display-costs"></div>
+                </div>
+            </div>
+            <div class="group-name-text-separator"></div>
+        </section>
+
+        <!-- nadwyżka bezpośrednia -->
+        <section>
+            <div class="revenue-display">
+                <div class="group-name">
+                    <div class="group-name-text-result">Nadwyżka:</div>
+                    <div id="display-surplus"></div>
                 </div>
             </div>
             <div class="group-name-text-separator"></div>

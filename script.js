@@ -499,14 +499,11 @@ function costsCalculation() {
     let przedplon = elementPrzedplon.value;
     przedplon = textToNumber(przedplon);
     elementPrzedplon.value = przedplon;
-    przedplon = parseFloat(przedplon.replace(/\s+/g, ''));
-    console.log(przedplon)
 
     const elementUprawaGleboka = document.querySelector('#uprawa-gleboka-resume');
     let uprawaGleboka = elementUprawaGleboka.value;
     uprawaGleboka = textToNumber(uprawaGleboka);
     elementUprawaGleboka.value = uprawaGleboka;
-    uprawaGleboka = parseFloat(uprawaGleboka.replace(/\s+/g, ''));
 
     const elementHerbicydGlifosad = document.querySelector('#herbicyd-z-glifosatem-result');
     const elementAdiuwantGlifosad = document.querySelector('#adiuwant-do-glifosatu-result');
@@ -524,43 +521,36 @@ function costsCalculation() {
     let zbior = elementZbior.value;
     zbior = textToNumber(zbior);
     elementZbior.value = zbior;
-    zbior = parseFloat(zbior.replace(/\s+/g, ''));
 
     const elementZaladunek = document.querySelector('#onloading-cost');
     let zaladunek = elementZaladunek.value;
     zaladunek = textToNumber(zaladunek);
     elementZaladunek.value = zaladunek;
-    zaladunek = parseFloat(zaladunek.replace(/\s+/g, ''));
 
     const elementTransport = document.querySelector('#transport-cost');
     let transport = elementTransport.value;
     transport = textToNumber(transport);
     elementTransport.value = transport;
-    transport = parseFloat(transport.replace(/\s+/g, ''));
 
     const elementOkryciePryzmy = document.querySelector('#cover-cost');
     let pryzma = elementOkryciePryzmy.value;
     pryzma = textToNumber(pryzma);
     elementOkryciePryzmy.value = pryzma;
-    pryzma = parseFloat(pryzma.replace(/\s+/g, ''));
 
     const elementUbezpieczenie = document.querySelector('#insurance-cost');
     let ubezpieczenia = elementUbezpieczenie.value;
     ubezpieczenia = textToNumber(ubezpieczenia);
     elementUbezpieczenie.value = ubezpieczenia;
-    ubezpieczenia = parseFloat(ubezpieczenia.replace(/\s+/g, ''));
 
     const elementPodatek = document.querySelector('#tax-cost');
     let podatek = elementPodatek.value;
     podatek = textToNumber(podatek);
     elementPodatek.value = podatek;
-    podatek = parseFloat(podatek.replace(/\s+/g, ''));
 
     const elementCzynsz = document.querySelector('#rent-cost');
     let czynsz = elementCzynsz.value;
     czynsz = textToNumber(czynsz);
     elementCzynsz.value = czynsz;
-    czynsz = parseFloat(czynsz.replace(/\s+/g, ''));
 
     const elementPlonTony = document.querySelector('#zakladany-plon');
 
@@ -569,8 +559,8 @@ function costsCalculation() {
                         Number(elementWapno.innerHTML.replace(" zł/ha", "")) +
                         Number(elementNawozNaturalny.innerHTML.replace(" zł/ha", "")) +
                         Number(elementMiedzyplon.innerHTML.replace(" zł/ha", "")) +
-                        Number(elementPrzedplon.value) +
-                        Number(elementUprawaGleboka.value))
+                        Number(elementPrzedplon.value.replace(/\s+/g, '')) +
+                        Number(elementUprawaGleboka.value.replace(/\s+/g, '')))
 
     //wiosna
     totalResult +=   (Number(elementHerbicydGlifosad.innerHTML.replace(" zł/ha", "")) + 
@@ -588,10 +578,10 @@ function costsCalculation() {
 
 
     //zbiór
-    totalResult +=   (Number(elementZbior.value) + ((Number(elementPlonTony.value)) * (Number(elementZaladunek.value) + Number(elementTransport.value) + Number(elementOkryciePryzmy.value))))
+    totalResult +=   (Number(elementZbior.value.replace(/\s+/g, '')) + ((Number(elementPlonTony.value.replace(/\s+/g, ''))) * (Number(elementZaladunek.value.replace(/\s+/g, '')) + Number(elementTransport.value.replace(/\s+/g, '')) + Number(elementOkryciePryzmy.value.replace(/\s+/g, '')))))
 
     //zarzadzanie
-    totalResult +=   (Number(elementUbezpieczenie.value) + Number(elementPodatek.value) + Number(elementCzynsz.value))
+    totalResult +=   (Number(elementUbezpieczenie.value.replace(/\s+/g, '')) + Number(elementPodatek.value.replace(/\s+/g, '')) + Number(elementCzynsz.value.replace(/\s+/g, '')))
 
     const nawozyTotal = getFinalResult('fertilizer-divs');
     const nawozyDolistneTotal = getFinalResult('fertilizer-onleaf-divs');
@@ -603,12 +593,19 @@ function costsCalculation() {
 
     totalResult = Math.round(totalResult*100)/100;
 
-    document.querySelector('#display-costs').innerHTML = totalResult + " zł/ha"; 
+    if(totalResult !== Infinity && !isNaN(totalResult)){
+        document.querySelector('#display-costs').innerHTML = totalResult + " zł/ha"; 
+    } else {
+        document.querySelector('#display-costs').innerHTML = "";
+    }
+}
 
-    // if(totalResult !== Infinity && !isNaN(totalResult)){
-    // } else {
-    //     document.querySelector('#display-costs').innerHTML = "";
-    // }
+function surplusCalculation() {
+    const elementCost = document.querySelector('#display-costs')
+    const elementRevenues = document.querySelector('#display-revenue')
+    const elementSurplus = document.querySelector('#display-surplus')
+
+    elementSurplus.innerHTML = parseFloat(elementRevenues.innerHTML.replace(/\s+/g, '')) - parseFloat(elementCost.innerHTML.replace(/\s+/g, '')) + " zł/ha";
 }
 
 function springCalculation() {
@@ -686,6 +683,7 @@ document.addEventListener('input', () => {
     soilCalculation();
     revenuesCalculation();
     costsCalculation();
+    surplusCalculation();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -743,6 +741,7 @@ document.addEventListener('DOMContentLoaded', () => {
     soilCalculation();
     revenuesCalculation();
     costsCalculation();
+    surplusCalculation();
 });
 
 document.addEventListener('click', () => {

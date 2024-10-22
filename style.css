@@ -11,15 +11,6 @@ body{
     border-radius: 0px;
     width: fit-content;
   }
-  .flex-div{
-    margin: 0px;
-  }
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 } 
 #container {
   background-color: white;
@@ -28,12 +19,6 @@ input::-webkit-inner-spin-button {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 3px 3px 30px 5px #cccccc;
-}
-.flex-container{
-  display: flex;
-}
-.flex-div{
-  margin: 25px;
 }
 #header {
   display: flex;
@@ -83,6 +68,9 @@ h1 {
 }
 .group-name-text-only{
   width: 320px;
+}
+.group-name-text-result{
+  width: 160px;
 }
 .revenue-display .group-name{
   border-top: solid 2px #505050;
@@ -270,6 +258,9 @@ input[type="checkbox"]:checked {
   background-color: rgb(0, 132, 55);
   border-color: rgb(0, 132, 55);
   position: relative;
+}
+input[type="checkbox"]:disabled {
+  background-color: rgb(200, 200, 200);
 }
 input[type="checkbox"]:checked::before {
   font-size: 30px;

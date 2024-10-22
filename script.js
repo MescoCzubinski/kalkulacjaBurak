@@ -55,18 +55,6 @@ function revenuesDisplay(){
     document.querySelector('#ecoschemes-divs').innerHTML = ecoscheme;
 }
 
-const elementMiedzyplonyEko = document.querySelector('#ekoschemat-miedzyplony-lub-wsiewki');
-const elementPlanEko = document.querySelector('#ekoschemat-plan-nawozenia');
-const elementStrukturaEko = document.querySelector('#ekoschemat-zroznicowana-struktura-upraw');
-const elementObornikEko = document.querySelector('#ekoschemat-wymieszanie-obornika');
-const elementNawozyEko = document.querySelector('#ekoschemat-stosowanie-nawozow-naturalnych');
-const elementSystemyEko = document.querySelector('#ekoschemat-uproszczone-systemy-uprawy');
-const elementMieszanieEko = document.querySelector('ekoschemat-wymieszanie-slomy-z-gleba');
-const elementIntegrowanaEko = document.querySelector('#ekoschemat-integrowana-produkcja-roslin');
-const elementBiologicznaEko = document.querySelector('#ekoschemat-biologiczna-ochrona-upraw');
-const elementInnyEko = document.querySelector('#inny-ekoschemat');
-
-
 function springDisplay() {
     let springCosts = "";
 
@@ -116,7 +104,6 @@ function springDisplay() {
 
     document.querySelector('#spring-costs-divs').innerHTML = springCosts;
 }
-
 
 const addCalculatorFertilizer = (parentId) => {
     const calculator = document.createElement('div');
@@ -171,7 +158,7 @@ const addCalculatorFertilizerOnleaf = (parentId) => {
     calculator.className = 'kalkulator';
     calculator.innerHTML = `
         <div class="kalkulator-linijka">
-            <input type="text" class="product-name" placeholder="Nazwa nawozu nalistnego">
+            <input type="text" class="product-name" placeholder="Nazwa nawozu dolistnego">
             <input type="button" class="add" value="+">
             <input type="button" class="remove" value="-">
         </div>
@@ -210,7 +197,7 @@ const addCalculatorFertilizerOnleaf = (parentId) => {
     });
 
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorFertilizer(parentId);
+        addCalculatorFertilizerOnleaf(parentId);
     });
 };
 
@@ -378,8 +365,10 @@ const calculate = (event) => {
         result = 0;
     }
 
-    calculator.querySelector('.result').textContent = result + " zł/ha";
-    calculator.setAttribute('data-result', result);  // Store the result in a data attribute
+    if(!isNaN(result) || result !== Infinity){
+        calculator.querySelector('.result').textContent = result + " zł/ha";
+        calculator.setAttribute('data-result', result);  // Store the result in a data attribute
+    }
 }
 
 const getFinalResult = (parentId) => {
@@ -657,6 +646,131 @@ document.addEventListener('DOMContentLoaded', () => {
     soilCalculation();
     revenuesCalculation();
     costsCalculation();
+
+    document.querySelector('#reset').addEventListener('click', () => {
+        const elements = [
+            document.querySelector('#badania-gleby-result'),
+            document.querySelector('#wapno-result'),
+            document.querySelector('#nawoz-naturalny-result'),
+            document.querySelector('#miedzyplon-result'),
+            document.querySelector('#herbicyd-z-glifosatem-result'),
+            document.querySelector('#adiuwant-do-glifosatu-result'),
+            document.querySelector('#nasiona-buraka-result'),
+            document.querySelector('#fertilizer-measure-result'),
+            document.querySelector('#pest-management-measure-result')
+        ]
+
+        elements.forEach((element) => {
+            element.innerHTML = "";
+        })
+    })
 });
 
+document.addEventListener('click', () => {
+    document.querySelector('#ecoschemes-divs').addEventListener('click', ()=> {
+        const elementMiedzyplonyEko = document.querySelector('#ekoschemat-miedzyplony-lub-wsiewki-checkbox');
+        const elementPlanEko = document.querySelector('#ekoschemat-plan-nawozenia-checkbox');
+        const elementObornikEko = document.querySelector('#ekoschemat-wymieszanie-obornika-checkbox');
+        const elementNawozyEko = document.querySelector('#ekoschemat-stosowanie-nawozow-naturalnych-checkbox');
+        const elementSystemyEko = document.querySelector('#ekoschemat-uproszczone-systemy-uprawy-checkbox');
+        const elementMieszanieEko = document.querySelector('#ekoschemat-wymieszanie-slomy-z-gleba-checkbox');
+        const elementIntegrowanaEko = document.querySelector('#ekoschemat-integrowana-produkcja-roslin-checkbox');
+        const elementBiologicznaEko = document.querySelector('#ekoschemat-biologiczna-ochrona-upraw-checkbox');
 
+        if (elementMiedzyplonyEko.checked) {
+            elementSystemyEko.checked = false;
+            elementSystemyEko.disabled = true;
+
+            elementMieszanieEko.checked = false;
+            elementMieszanieEko.disabled = true;
+        } else {
+            elementSystemyEko.disabled = false;
+            elementMieszanieEko.disabled = false;
+        }
+
+        if(elementPlanEko.checked){
+            elementIntegrowanaEko.checked = false;
+            elementIntegrowanaEko.disabled = true;
+        } else {
+            elementIntegrowanaEko.disabled = false;
+        }
+
+        if(elementObornikEko.checked){
+            elementNawozyEko.checked = false;
+            elementNawozyEko.disabled = true;
+
+            elementSystemyEko.checked = false;
+            elementSystemyEko.disabled = true;
+
+            elementMieszanieEko.checked = false;
+            elementMieszanieEko.disabled = true;
+        } else {
+            elementNawozyEko.disabled = false;
+            elementSystemyEko.disabled = false;
+            elementMieszanieEko.disabled = false;
+        }
+
+        // if(elementNawozyEko.checked) {
+        //     elementObornikEko.checked = false;
+        //     elementObornikEko.disabled = true;
+
+        //     elementMieszanieEko.checked = false;
+        //     elementMieszanieEko.disabled = true;
+        // } else {
+        //     elementObornikEko.disabled = false;
+        //     elementMieszanieEko.disabled = false;
+        // }
+
+        // if(elementSystemyEko.checked){
+        //     elementMiedzyplonyEko.checked = false;
+        //     elementMiedzyplonyEko.disabled = true;
+
+        //     elementObornikEko.checked = false;
+        //     elementObornikEko.disabled = true;
+
+        //     elementMieszanieEko.checked = false;
+        //     elementMieszanieEko.disabled = true;
+        // } else {
+        //     elementMiedzyplonyEko.disabled = false;
+        //     elementObornikEko.disabled = false;
+        //     elementMieszanieEko.disabled = false;
+        // }
+
+        // if(elementMieszanieEko.checked){
+        //     elementMiedzyplonyEko.checked = false;
+        //     elementMiedzyplonyEko.disabled = true;
+
+        //     elementObornikEko.checked = false;
+        //     elementObornikEko.disabled = true;
+
+        //     elementNawozyEko.checked = false;
+        //     elementNawozyEko.disabled = true;
+
+        //     elementSystemyEko.checked = false;
+        //     elementSystemyEko.disabled = true;
+        // } else {
+        //     elementMiedzyplonyEko.disabled = false;
+        //     elementObornikEko.disabled = false;
+        //     elementNawozyEko.disabled = false;
+        //     elementSystemyEko.disabled = false;
+        // }
+
+        // if(elementIntegrowanaEko.checked) {
+        //     elementPlanEko.checked = false;
+        //     elementPlanEko.disabled = true;
+
+        //     elementBiologicznaEko.checked = false;
+        //     elementBiologicznaEko.disabled = true;
+        // } else {
+        //     elementPlanEko.disabled = false;
+        //     elementBiologicznaEko.disabled = false;
+        // }
+
+        // if(elementBiologicznaEko.checked){
+        //     elementIntegrowanaEko.checked = false;
+        //     elementIntegrowanaEko.disabled = true;
+        // } else {
+        //     elementIntegrowanaEko.disabled = false;
+        // }
+    })
+})

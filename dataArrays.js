@@ -96,28 +96,13 @@ const springNamesOneVaue = [
   "Mulczowanie międzyplonu:",
   "Siew punktowy lub strip-till:"
 ];
-const springValues = [
-  37.00,
-  12.00,
-  1200.00,
-];
-const springValuesOneVaue = [
-  120.00,
-  110.00,
-  151.00,
-  220.00
-]
-const springValueValue = [
-  2.00, 
-  1.00,
-  1.10, 
-];
 const springUnitsIDs = [
   "herbicyd-z-glifosatem",
   "adiuwant-do-glifosatu",
   "nasiona-buraka",
   "fertilizer-measure",
-  "pest-management-measure"
+  "pest-management-measure",
+  "opielanie-measure"
 ];
 const springUnitsValue = [
   "l/ha",
@@ -144,14 +129,3 @@ const autumnUnitsIDs = [
   "nawoz-naturalny",
   "miedzyplon",
 ];
-// const numberInputs = document.querySelectorAll('input[type=text]');
-// numberInputs.forEach(input => {
-//     input.addEventListener('blur', function() {
-//         if (this.value){
-//             this.classList.add('visited');
-//         }
-//         else{
-//             this.classList.remove('visited');
-//         }
-//     });
-// });

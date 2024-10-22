@@ -67,14 +67,14 @@ function springDisplay() {
             <div class="kalkulator-linijka">
                 <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                 <div class="value">
-                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="${springValues[i]}" id="${springUnitsIDs[i]}-value">
+                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="${springUnitsIDs[i]}-value">
                     <div class="unit">${springUnits[i]}</div>
                 </div>
             </div>
             <div class="kalkulator-linijka">
                 <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
                 <div class="value">
-                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="${springValueValue[i]}" id="${springUnitsIDs[i]}-amount">
+                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="${springUnitsIDs[i]}-amount">
                     <div class="unit">${springUnitsValue[i]}</div>
                 </div>
             </div>
@@ -94,10 +94,10 @@ function springDisplay() {
                 <label>
                     <div class="revenue-name">${springNamesOneVaue[i]}</div>
                     <div class="value">
-                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="${springValuesOneVaue[i]}" id="wiosna-jedna-wartosc-${i}"></input>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*"  id="wiosna-jedna-wartosc-${i}"></input>
                         <div class="unit">${springUnitsOneVaue[i]}</div>
                     </div>
-                </label>
+                </label>    
             </div>
         `;
     }
@@ -344,7 +344,7 @@ const addCalculatorBiopreparat = (parentId) => {
         addCalculatorBiopreparat(parentId);
     });
 };
-
+    
 const calculate = (event) => {
     const calculator = event.target.closest('.kalkulator');
 
@@ -365,7 +365,7 @@ const calculate = (event) => {
         result = 0;
     }
 
-    if(!isNaN(result) || result !== Infinity){
+    if(!isNaN(result) && result !== Infinity){
         calculator.querySelector('.result').textContent = result + " zł/ha";
         calculator.setAttribute('data-result', result);  // Store the result in a data attribute
     }
@@ -435,7 +435,7 @@ function revenuesCalculation() {
     supplementResult = Math.round(supplementResult * 100);
 
     let totalResult = (revenueResult + supplementResult) / 100; 
-    if(totalResult !== Infinity || !isNaN(totalResult)){
+    if(totalResult !== Infinity && !isNaN(totalResult)){
         document.querySelector('#display-revenue').innerHTML = totalResult.toFixed(2) + " zł/ha"; 
     }  else {
         document.querySelector('#display-revenue').innerHTML = ""
@@ -450,10 +450,10 @@ function soilCalculation(){
 
     let calculation = Math.round((Number(elementValue.value) * Number(elementAmount.value))/Number(elementYears.value)*100)/100;
 
-    if(calculation !== Infinity || !isNaN(calculation)){
+    if(calculation !== Infinity && !isNaN(calculation)){
         elementResult.innerHTML = calculation + " zł/ha";
     } else {
-        elementResult.innerHTML = ""
+        elementResult.innerHTML = "";
     }
 }
 
@@ -507,8 +507,8 @@ function costsCalculation() {
 
     //zabiegi oprysków
     totalResult += (Number(elementZabiegNawozenia.innerHTML.replace(" zł/ha", "")) + 
-                    Number(elementZabiegOpryskiwania.innerHTML.replace(" zł/ha", "")) +)
-                    Number(elementZabiegOpielania.innerHTML.replace(" zł/ha", ""))
+                    Number(elementZabiegOpryskiwania.innerHTML.replace(" zł/ha", "")) +
+                    Number(elementZabiegOpielania.innerHTML.replace(" zł/ha", "")))
 
 
     //zbiór
@@ -546,7 +546,7 @@ function springCalculation() {
 
         const elementResult = document.querySelector(`#${id}-result`);
         let calculation = (Number(value) * Number(amount))
-        if(!isNaN(calculation) || calculation !== Infinity) { 
+        if(!isNaN(calculation) && calculation !== Infinity) { 
             elementResult.innerHTML = calculation + " zł/ha";
         }  else {
             elementResult.innerHTML = ""
@@ -591,7 +591,7 @@ function longCalculation(){
 
         calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)/Number(years);
 
-        if(!isNaN(calculation) || calculation !== Infinity) { 
+        if(!isNaN(calculation) && calculation !== Infinity) { 
             elementResult.innerHTML = calculation.toFixed(2) + " zł/ha";
         }  else {
             elementResult.innerHTML = ""

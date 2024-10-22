@@ -11,9 +11,6 @@ body{
     border-radius: 0px;
     width: 340px;
   }
-  .divs{
-    margin: 0;
-  }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

@@ -21,16 +21,16 @@
                         </div>
                     </header>
 
-                    <!-- przychody - tytuł -->
-                    <section>
-                        <div class="revenue-display">
-                            <div class="group-name">
-                                <div class="group-name-text-only">PRZYCHODY</div>
-                            </div>
-                        </div>
-                    </section>
-
                     <article>
+                        <!-- przychody - tytuł -->
+                        <section>
+                            <div class="revenue-display">
+                                <div class="group-name">
+                                    <div class="group-name-text-only">PRZYCHODY</div>
+                                </div>
+                            </div>
+                        </section>
+
                         <!-- przychody -->
                         <section>
                             <div class="group-name">
@@ -65,239 +65,241 @@
                         </section>
                     </article>
 
-                    <!-- koszty - tytuł -->
-                    <section>
-                        <div class="revenue-display">
-                            <div class="group-name">
-                                <div class="group-name-text-only">KOSZTY</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- jesień koszty -->
                     <article>
+                        <!-- koszty - tytuł -->
                         <section>
-                            <div class="group-name">
-                                <div class="group-name-text">Jesień - koszty</div>
-                                <input class="group-button" id="group-button-autumn-costs" type="button" value="rozwiń"></input>
+                            <div class="revenue-display">
+                                <div class="group-name">
+                                    <div class="group-name-text-only">KOSZTY</div>
+                                </div>
                             </div>
-                            <div class="kalkulatory">
-                                <div id="autumn-costs-divs">
-                                    <div class="kalkulator">
-                                        <div class="kalkulator-linijka">
-                                            <div class="spring-cost-name">Badanie gleby:</div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="15" id="badania-gleby-value">
-                                                <div class="unit">zł/próbkę</div>
+                        </section>
+
+                        <!-- jesień koszty -->
+                        <article>
+                            <section>
+                                <div class="group-name">
+                                    <div class="group-name-text">Jesień - koszty</div>
+                                    <input class="group-button" id="group-button-autumn-costs" type="button" value="rozwiń"></input>
+                                </div>
+                                <div class="kalkulatory">
+                                    <div id="autumn-costs-divs">
+                                        <div class="kalkulator">
+                                            <div class="kalkulator-linijka">
+                                                <div class="spring-cost-name">Badanie gleby:</div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="15" id="badania-gleby-value">
+                                                    <div class="unit">zł/próbkę</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Liczba:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0.25" id="badania-gleby-amount">
+                                                    <div class="unit">próbek/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Ile lat:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="badania-gleby-years">
+                                                    <div class="unit">próbek/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                                <div class="value">
+                                                    <span class="result kalkulator-linijka-nazwa" id="badania-gleby-result"></span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Liczba:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0.25" id="badania-gleby-amount">
-                                                <div class="unit">próbek/ha</div>
+                                    
+                                        <div class="kalkulator">
+                                            <div class="kalkulator-linijka">
+                                                <div class="spring-cost-name">Wapno:</div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="88" id="wapno-value">
+                                                    <div class="unit">zł/t</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="wapno-amount">
+                                                    <div class="unit">t/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="3" id="wapno-years">
+                                                    <div class="unit">lat</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="30" id="wapno-measure">
+                                                    <div class="unit">zł/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="5" id="wapno-onload">
+                                                    <div class="unit">zł/t</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                                <div class="value">
+                                                    <span class="result kalkulator-linijka-nazwa" id="wapno-result"></span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Ile lat:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="badania-gleby-years">
-                                                <div class="unit">próbek/ha</div>
+                                    
+                                        <div class="kalkulator">
+                                            <div class="kalkulator-linijka">
+                                                <div class="spring-cost-name">Uprawa po przedplonie:</div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="120" id="uprawa-przedplon-value">
+                                                    <div class="unit">zł/ha</div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                                            <div class="value">
-                                                <span class="result kalkulator-linijka-nazwa" id="badania-gleby-result"></span>
+                                    
+                                        <div class="kalkulator">
+                                            <div class="kalkulator-linijka">
+                                                <div class="spring-cost-name">Nawóz naturalny:</div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="63" id="nawoz-naturalny-value">
+                                                    <div class="unit">zł/t, m&sup3</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Liczba ton:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="25" id="nawoz-naturalny-amount">
+                                                    <div class="unit">t, m&sup3/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="nawoz-naturalny-years">
+                                                    <div class="unit">lat</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="10" id="nawoz-naturalny-measure">
+                                                    <div class="unit">zł/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="8" id="nawoz-naturalny-onload">
+                                                    <div class="unit">zł/t</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                                <div class="value">
+                                                    <span class="result kalkulator-linijka-nazwa" id="nawoz-naturalny-result"></span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                
-                                    <div class="kalkulator">
-                                        <div class="kalkulator-linijka">
-                                            <div class="spring-cost-name">Wapno:</div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="88" id="wapno-value">
-                                                <div class="unit">zł/t</div>
+                                    
+                                        <div class="kalkulator">
+                                            <div class="kalkulator-linijka">
+                                                <div class="spring-cost-name">Międzyplon:</div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Cena nasion:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="75" id="miedzyplon-value">
+                                                    <div class="unit">zł/kg</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Dawka nasion:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="miedzyplon-amount">
+                                                    <div class="unit">kg/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Co ile lat siew:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="2" id="miedzyplon-years">
+                                                    <div class="unit">lat</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt siewnika:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="100" id="miedzyplon-measure">
+                                                    <div class="unit">zł/ha</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka" style="display: none;">
+                                                <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0" id="miedzyplon-onload">
+                                                    <div class="unit">zł/t</div>
+                                                </div>
+                                            </div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                                <div class="value">
+                                                    <span class="result kalkulator-linijka-nazwa" id="miedzyplon-result"></span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="wapno-amount">
-                                                <div class="unit">t/ha</div>
+                                    
+                                        <div class="kalkulator">
+                                            <div class="kalkulator-linijka">
+                                                <div class="spring-cost-name">Uprawa głęboka:</div>
                                             </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="3" id="wapno-years">
-                                                <div class="unit">lat</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="30" id="wapno-measure">
-                                                <div class="unit">zł/ha</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="5" id="wapno-onload">
-                                                <div class="unit">zł/t</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                                            <div class="value">
-                                                <span class="result kalkulator-linijka-nazwa" id="wapno-result"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="kalkulator">
-                                        <div class="kalkulator-linijka">
-                                            <div class="spring-cost-name">Uprawa po przedplonie:</div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="120" id="uprawa-przedplon-value">
-                                                <div class="unit">zł/ha</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="kalkulator">
-                                        <div class="kalkulator-linijka">
-                                            <div class="spring-cost-name">Nawóz naturalny:</div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="63" id="nawoz-naturalny-value">
-                                                <div class="unit">zł/t, m&sup3</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Liczba ton:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="25" id="nawoz-naturalny-amount">
-                                                <div class="unit">t, m&sup3/ha</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="nawoz-naturalny-years">
-                                                <div class="unit">lat</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="10" id="nawoz-naturalny-measure">
-                                                <div class="unit">zł/ha</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="8" id="nawoz-naturalny-onload">
-                                                <div class="unit">zł/t</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                                            <div class="value">
-                                                <span class="result kalkulator-linijka-nazwa" id="nawoz-naturalny-result"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="kalkulator">
-                                        <div class="kalkulator-linijka">
-                                            <div class="spring-cost-name">Międzyplon:</div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Cena nasion:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="75" id="miedzyplon-value">
-                                                <div class="unit">zł/kg</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Dawka nasion:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="miedzyplon-amount">
-                                                <div class="unit">kg/ha</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Co ile lat siew:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="2" id="miedzyplon-years">
-                                                <div class="unit">lat</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt siewnika:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="100" id="miedzyplon-measure">
-                                                <div class="unit">zł/ha</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka" style="display: none;">
-                                            <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0" id="miedzyplon-onload">
-                                                <div class="unit">zł/t</div>
-                                            </div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                                            <div class="value">
-                                                <span class="result kalkulator-linijka-nazwa" id="miedzyplon-result"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="kalkulator">
-                                        <div class="kalkulator-linijka">
-                                            <div class="spring-cost-name">Uprawa głęboka:</div>
-                                        </div>
-                                        <div class="kalkulator-linijka">
-                                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                                            <div class="value">
-                                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="220" id="uprawa-gleboka-resume">
-                                                <div class="unit">zł/ha</div>
+                                            <div class="kalkulator-linijka">
+                                                <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                                <div class="value">
+                                                    <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="220" id="uprawa-gleboka-resume">
+                                                    <div class="unit">zł/ha</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
-                    </article>
+                            </section>
+                        </article>
 
-                    <!-- wiosna koszty -->
-                    <article>
-                        <section>
-                            <div class="group-name">
-                                <div class="group-name-text">Wiosna - koszty</div>
-                                <input class="group-button" id="group-button-spring-costs" type="button" value="rozwiń"></input>
-                            </div>
-                            <div class="spring-costs">
-                                <div id="spring-costs-divs"></div>
-                            </div>
-                        </section>
+                        <!-- wiosna koszty -->
+                        <article>
+                            <section>
+                                <div class="group-name">
+                                    <div class="group-name-text">Wiosna - koszty</div>
+                                    <input class="group-button" id="group-button-spring-costs" type="button" value="rozwiń"></input>
+                                </div>
+                                <div class="spring-costs">
+                                    <div id="spring-costs-divs"></div>
+                                </div>
+                            </section>
+                        </article>
                     </article>
 
                     <article> 
@@ -515,7 +517,7 @@
                             </div>
                         </section>
 
-                        <!-- przychód -->
+                        <!-- koszt -->
                         <section>
                             <div class="revenue-display">
                                 <div class="group-name">

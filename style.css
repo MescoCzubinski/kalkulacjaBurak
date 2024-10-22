@@ -8,13 +8,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 } 
-#container{
+#container {
   background-color: white;
   border-radius: 25px;
-  width: 900px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 3px 3px 30px 5px #cccccc;
@@ -35,7 +31,6 @@ h1 {
 }
 #reset {
   height: 50px;
-  max-width: 90px;
   border-radius: 25px;
   font-size: 22px;
   background-color: transparent;
@@ -52,7 +47,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  width: 400px;
+  width: 320px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
@@ -64,11 +59,10 @@ h1 {
   display: flex;
 }
 .group-name-text{
-  width: 330px;
+  width: 320px;
 }
 .group-name-text-only{
-  padding-left: 40px;
-  width: 330px;
+  width: 320px;
 }
 .revenue-display .group-name{
   border-top: solid 2px #505050;
@@ -104,7 +98,7 @@ h1 {
   margin-right: auto;
 }
 .ecoschemes{
-  width: 370px;
+  width: 320px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -202,7 +196,6 @@ input[type="text"]{
 .ecoscheme{
   margin-bottom: 20px !important;
 }
-
 .revenue-name, .supplement-name, .ecoscheme-name{
   text-align: left;
   font-size: 20px;
@@ -211,7 +204,8 @@ input[type="text"]{
   margin-bottom: auto;
 }
 .spring-cost-name{
-  width: 370px;
+  width: 320px;
+  margin-left: 5px;
   font-weight: bold;
   text-align: left;
   margin-bottom: 20px;
@@ -222,7 +216,7 @@ input[type="text"]{
 }
 .spring-cost .value{
   display: flex;
-  width: 370px;
+  width: 320px;
 }
 .spring-costs-inputs{
   margin-left: auto;
@@ -254,13 +248,11 @@ input[type="checkbox"] {
   position: relative;
   top: 10px
 }
-
 input[type="checkbox"]:checked {
   background-color: rgb(0, 132, 55);
   border-color: rgb(0, 132, 55);
   position: relative;
 }
-
 input[type="checkbox"]:checked::before {
   font-size: 30px;
   color: white;
@@ -269,7 +261,6 @@ input[type="checkbox"]:checked::before {
   top: -4px;
   left: 4px;
 }
-
 input[type="text"] {
   height: 30px;
 }

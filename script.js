@@ -245,7 +245,7 @@ const addCalculatorPestManagement = (parentId) => {
     });
 
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorFertilizer(parentId);
+        addCalculatorPestManagement(parentId);
     });
 };
 
@@ -254,7 +254,7 @@ const addCalculatorAdiuwant = (parentId) => {
     calculator.className = 'kalkulator';
     calculator.innerHTML = `
         <div class="kalkulator-linijka">
-            <input type="text" class="product-name" placeholder="Nazwa adiuwantu">
+            <input type="text" class="product-name" placeholder="Nazwa adiuwanta">
             <input type="button" class="add" value="+">
             <input type="button" class="remove" value="-">
         </div>
@@ -341,7 +341,7 @@ const addCalculatorBiopreparat = (parentId) => {
     });
 
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorFertilizer(parentId);
+        addCalculatorBiopreparat(parentId);
     });
 };
 
@@ -435,7 +435,11 @@ function revenuesCalculation() {
     supplementResult = Math.round(supplementResult * 100);
 
     let totalResult = (revenueResult + supplementResult) / 100; 
-    document.querySelector('#display-revenue').innerHTML = totalResult.toFixed(2) + " zł/ha"; 
+    if(totalResult !== Infinity || !isNaN(totalResult)){
+        document.querySelector('#display-revenue').innerHTML = totalResult.toFixed(2) + " zł/ha"; 
+    }  else {
+        document.querySelector('#display-revenue').innerHTML = ""
+    }
 }
 
 function soilCalculation(){
@@ -444,7 +448,13 @@ function soilCalculation(){
     const elementYears = document.querySelector('#badania-gleby-years');
     const elementResult = document.querySelector('#badania-gleby-result');
 
-    elementResult.innerHTML = Math.round((Number(elementValue.value) * Number(elementAmount.value))/Number(elementYears.value)*100)/100 + " zł/ha"
+    let calculation = Math.round((Number(elementValue.value) * Number(elementAmount.value))/Number(elementYears.value)*100)/100;
+
+    if(calculation !== Infinity || !isNaN(calculation)){
+        elementResult.innerHTML = calculation + " zł/ha";
+    } else {
+        elementResult.innerHTML = ""
+    }
 }
 
 function costsCalculation() {
@@ -465,6 +475,7 @@ function costsCalculation() {
 
     const elementZabiegNawozenia = document.querySelector('#fertilizer-measure-result');
     const elementZabiegOpryskiwania = document.querySelector('#pest-management-measure-result');
+    const elementZabiegOpielania = document.querySelector('#opielanie-measure-result');
 
     const elementZbior = document.querySelector('#harvest-cost');
     const elementZaladunek = document.querySelector('#onloading-cost');
@@ -496,7 +507,8 @@ function costsCalculation() {
 
     //zabiegi oprysków
     totalResult += (Number(elementZabiegNawozenia.innerHTML.replace(" zł/ha", "")) + 
-                    Number(elementZabiegOpryskiwania.innerHTML.replace(" zł/ha", "")))
+                    Number(elementZabiegOpryskiwania.innerHTML.replace(" zł/ha", "")) +)
+                    Number(elementZabiegOpielania.innerHTML.replace(" zł/ha", ""))
 
 
     //zbiór
@@ -534,8 +546,10 @@ function springCalculation() {
 
         const elementResult = document.querySelector(`#${id}-result`);
         let calculation = (Number(value) * Number(amount))
-        if(!isNaN(calculation)) { 
+        if(!isNaN(calculation) || calculation !== Infinity) { 
             elementResult.innerHTML = calculation + " zł/ha";
+        }  else {
+            elementResult.innerHTML = ""
         }
     });
 }
@@ -577,8 +591,10 @@ function longCalculation(){
 
         calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)/Number(years);
 
-        if(!isNaN(calculation)) { 
+        if(!isNaN(calculation) || calculation !== Infinity) { 
             elementResult.innerHTML = calculation.toFixed(2) + " zł/ha";
+        }  else {
+            elementResult.innerHTML = ""
         }
     });
 }
@@ -646,7 +662,9 @@ document.addEventListener('DOMContentLoaded', () => {
     soilCalculation();
     revenuesCalculation();
     costsCalculation();
+});
 
+document.addEventListener('click', () => {
     document.querySelector('#reset').addEventListener('click', () => {
         const elements = [
             document.querySelector('#badania-gleby-result'),
@@ -657,16 +675,15 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#adiuwant-do-glifosatu-result'),
             document.querySelector('#nasiona-buraka-result'),
             document.querySelector('#fertilizer-measure-result'),
-            document.querySelector('#pest-management-measure-result')
+            document.querySelector('#pest-management-measure-result'),
+            document.querySelector('#opielanie-measure-result')
         ]
 
         elements.forEach((element) => {
             element.innerHTML = "";
         })
     })
-});
 
-document.addEventListener('click', () => {
     document.querySelector('#ecoschemes-divs').addEventListener('click', ()=> {
         const elementMiedzyplonyEko = document.querySelector('#ekoschemat-miedzyplony-lub-wsiewki-checkbox');
         const elementPlanEko = document.querySelector('#ekoschemat-plan-nawozenia-checkbox');
@@ -710,67 +727,67 @@ document.addEventListener('click', () => {
             elementMieszanieEko.disabled = false;
         }
 
-        // if(elementNawozyEko.checked) {
-        //     elementObornikEko.checked = false;
-        //     elementObornikEko.disabled = true;
+        if(elementNawozyEko.checked) {
+            elementObornikEko.checked = false;
+            elementObornikEko.disabled = true;
 
-        //     elementMieszanieEko.checked = false;
-        //     elementMieszanieEko.disabled = true;
-        // } else {
-        //     elementObornikEko.disabled = false;
-        //     elementMieszanieEko.disabled = false;
-        // }
+            elementMieszanieEko.checked = false;
+            elementMieszanieEko.disabled = true;
+        } else {
+            elementObornikEko.disabled = false;
+            elementMieszanieEko.disabled = false;
+        }
 
-        // if(elementSystemyEko.checked){
-        //     elementMiedzyplonyEko.checked = false;
-        //     elementMiedzyplonyEko.disabled = true;
+        if(elementSystemyEko.checked){
+            elementMiedzyplonyEko.checked = false;
+            elementMiedzyplonyEko.disabled = true;
 
-        //     elementObornikEko.checked = false;
-        //     elementObornikEko.disabled = true;
+            elementObornikEko.checked = false;
+            elementObornikEko.disabled = true;
 
-        //     elementMieszanieEko.checked = false;
-        //     elementMieszanieEko.disabled = true;
-        // } else {
-        //     elementMiedzyplonyEko.disabled = false;
-        //     elementObornikEko.disabled = false;
-        //     elementMieszanieEko.disabled = false;
-        // }
+            elementMieszanieEko.checked = false;
+            elementMieszanieEko.disabled = true;
+        } else {
+            elementMiedzyplonyEko.disabled = false;
+            elementObornikEko.disabled = false;
+            elementMieszanieEko.disabled = false;
+        }
 
-        // if(elementMieszanieEko.checked){
-        //     elementMiedzyplonyEko.checked = false;
-        //     elementMiedzyplonyEko.disabled = true;
+        if(elementMieszanieEko.checked){
+            elementMiedzyplonyEko.checked = false;
+            elementMiedzyplonyEko.disabled = true;
 
-        //     elementObornikEko.checked = false;
-        //     elementObornikEko.disabled = true;
+            elementObornikEko.checked = false;
+            elementObornikEko.disabled = true;
 
-        //     elementNawozyEko.checked = false;
-        //     elementNawozyEko.disabled = true;
+            elementNawozyEko.checked = false;
+            elementNawozyEko.disabled = true;
 
-        //     elementSystemyEko.checked = false;
-        //     elementSystemyEko.disabled = true;
-        // } else {
-        //     elementMiedzyplonyEko.disabled = false;
-        //     elementObornikEko.disabled = false;
-        //     elementNawozyEko.disabled = false;
-        //     elementSystemyEko.disabled = false;
-        // }
+            elementSystemyEko.checked = false;
+            elementSystemyEko.disabled = true;
+        } else {
+            elementMiedzyplonyEko.disabled = false;
+            elementObornikEko.disabled = false;
+            elementNawozyEko.disabled = false;
+            elementSystemyEko.disabled = false;
+        }
 
-        // if(elementIntegrowanaEko.checked) {
-        //     elementPlanEko.checked = false;
-        //     elementPlanEko.disabled = true;
+        if(elementIntegrowanaEko.checked) {
+            elementPlanEko.checked = false;
+            elementPlanEko.disabled = true;
 
-        //     elementBiologicznaEko.checked = false;
-        //     elementBiologicznaEko.disabled = true;
-        // } else {
-        //     elementPlanEko.disabled = false;
-        //     elementBiologicznaEko.disabled = false;
-        // }
+            elementBiologicznaEko.checked = false;
+            elementBiologicznaEko.disabled = true;
+        } else {
+            elementPlanEko.disabled = false;
+            elementBiologicznaEko.disabled = false;
+        }
 
-        // if(elementBiologicznaEko.checked){
-        //     elementIntegrowanaEko.checked = false;
-        //     elementIntegrowanaEko.disabled = true;
-        // } else {
-        //     elementIntegrowanaEko.disabled = false;
-        // }
+        if(elementBiologicznaEko.checked){
+            elementIntegrowanaEko.checked = false;
+            elementIntegrowanaEko.disabled = true;
+        } else {
+            elementIntegrowanaEko.disabled = false;
+        }
     })
 })

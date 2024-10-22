@@ -194,35 +194,35 @@
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                             <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-value" title="input" placeholder="wartość">
+                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-value" title="input">
                                 <div class="unit">zł/t, m&sup3</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Liczba ton:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-amount" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-amount" title="input">
                                 <div class="unit">t, m&sup3/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-years" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-years" title="input">
                                 <div class="unit">lat</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-measure" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-measure" title="input">
                                 <div class="unit">zł/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-onload" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="nawoz-naturalny-onload" title="input">
                                 <div class="unit">zł/t</div>
                             </div>
                         </div>
@@ -241,35 +241,35 @@
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Cena nasion:</p></div>
                             <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="75" id="miedzyplon-value" title="input" placeholder="wartość">
+                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="miedzyplon-value" title="input" >
                                 <div class="unit">zł/kg</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Dawka nasion:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="miedzyplon-amount" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="miedzyplon-amount" title="input">
                                 <div class="unit">kg/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Co ile lat siew:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="2" id="miedzyplon-years" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="miedzyplon-years" title="input">
                                 <div class="unit">lat</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Koszt siewnika:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="100" id="miedzyplon-measure" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*"  id="miedzyplon-measure" title="input">
                                 <div class="unit">zł/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka" style="display: none;">
                             <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0" id="miedzyplon-onload" title="input" placeholder="wartość">
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="miedzyplon-onload" title="input">
                                 <div class="unit">zł/t</div>
                             </div>
                         </div>
@@ -392,7 +392,7 @@
             </div>
         </section>
 
-        <!-- zabieg - nawożenie -->
+        <!-- zabieg - opryskiwanie -->
         <section>
             <div class="kalkulator">
                 <div class="kalkulator-linijka">
@@ -416,6 +416,35 @@
                     <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
                     <div class="value">
                         <span class="result kalkulator-linijka-nazwa" id="pest-management-measure-result"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- zabieg - opielanie -->
+        <section>
+            <div class="kalkulator">
+                <div class="kalkulator-linijka">
+                    <div class="spring-cost-name">Koszt zabiegu opielania:</div>
+                </div>
+                <div class="kalkulator-linijka">
+                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                    <div class="value">
+                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="opielanie-measure-value" placeholder="koszt na ha">
+                        <div class="unit">zł/ha</div>
+                    </div>
+                </div>
+                <div class="kalkulator-linijka">
+                    <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
+                    <div class="value">
+                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="opielanie-measure-amount" placeholder="opielanie">
+                        <div class="unit">razy/ha</div>
+                    </div>
+                </div>
+                <div class="kalkulator-linijka">
+                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                    <div class="value">
+                        <span class="result kalkulator-linijka-nazwa" id="opielanie-measure-result"></span>
                     </div>
                 </div>
             </div>

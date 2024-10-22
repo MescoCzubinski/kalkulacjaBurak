@@ -660,8 +660,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //na początku:
     document.querySelector(`#revenues-divs`).classList.remove('none')
     document.querySelector(`#group-button-revenue`).value = "zwiń"
-    document.querySelector(`#autumn-costs-divs`).classList.remove('none')
-    document.querySelector(`#group-button-autumn-costs`).value = "zwiń"
     
     springCalculation();
     longCalculation();

@@ -21,498 +21,503 @@
             </div>
         </header>
 
-        <!-- przychody - tytuł -->
-        <section>
-            <div class="revenue-display">
-                <div class="group-name">
-                    <div class="group-name-text-only">PRZYCHODY</div>
-                </div>
-            </div>
-        </section>
+        <div style="display: flex;">
+            <div class="divs" style="margin-left: 10px;"">
+                <!-- przychody - tytuł -->
+                <section>
+                    <div class="revenue-display">
+                        <div class="group-name">
+                            <div class="group-name-text-only">PRZYCHODY</div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- przychody -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Przychody z plonu</div>
-                <input class="group-button" id="group-button-revenue" type="button" value="rozwiń"></input>
-            </div>
-            <div class="revenues">
-                <div id="revenues-divs"></div>
-            </div>
-        </section>
+                <!-- przychody -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Przychody z plonu</div>
+                        <input class="group-button" id="group-button-revenue" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="revenues">
+                        <div id="revenues-divs"></div>
+                    </div>
+                </section>
 
-        <!-- dopłaty -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Dopłaty</div>
-                <input class="group-button" id="group-button-supplement" type="button" value="rozwiń"></input>
-            </div>
-            <div class="supplements">
-                <div id="supplements-divs"></div>
-            </div>
-        </section>
+                <!-- dopłaty -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Dopłaty</div>
+                        <input class="group-button" id="group-button-supplement" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="supplements">
+                        <div id="supplements-divs"></div>
+                    </div>
+                </section>
 
-        <!-- ekoschematy -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Ekoschematy</div>
-                <input class="group-button" id="group-button-ecoscheme" type="button" value="rozwiń"></input>
+                <!-- ekoschematy -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Ekoschematy</div>
+                        <input class="group-button" id="group-button-ecoscheme" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="ecoschemes">
+                        <div id="ecoschemes-divs"></div>
+                    </div>
+                </section>
             </div>
-            <div class="ecoschemes">
-                <div id="ecoschemes-divs"></div>
-            </div>
-        </section>
+            <div class="divs" style="margin-left: 20px; margin-right: 10px;">
+                <!-- koszty - tytuł -->
+                <section>
+                    <div class="revenue-display">
+                        <div class="group-name">
+                            <div class="group-name-text-only">KOSZTY</div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- koszty - tytuł -->
-        <section>
-            <div class="revenue-display">
-                <div class="group-name">
-                    <div class="group-name-text-only">KOSZTY</div>
-                </div>
-            </div>
-        </section>
+                <!-- jesień koszty -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Jesień - koszty</div>
+                        <input class="group-button" id="group-button-autumn-costs" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="kalkulatory">
+                        <div id="autumn-costs-divs">
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Badanie gleby:</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="15" id="badania-gleby-value" title="input" placeholder="wartość">
+                                        <div class="unit">zł/próbkę</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Liczba:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0.25" id="badania-gleby-amount" title="input" placeholder="wartość">
+                                        <div class="unit">próbek/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Ile lat:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="badania-gleby-years" title="input" placeholder="wartość">
+                                        <div class="unit">próbek/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <span class="result kalkulator-linijka-nazwa" id="badania-gleby-result"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Wapno:</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="88" id="wapno-value" title="input" placeholder="wartość">
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="wapno-amount" title="input" placeholder="wartość">
+                                        <div class="unit">t/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="3" id="wapno-years" title="input" placeholder="wartość">
+                                        <div class="unit">lat</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="30" id="wapno-measure" title="input" placeholder="wartość">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="5" id="wapno-onload" title="input" placeholder="wartość">
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <span class="result kalkulator-linijka-nazwa" id="wapno-result"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Uprawa po przedplonie:</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="120" id="uprawa-przedplon-value" title="input" placeholder="wartość">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Nawóz naturalny:</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="63" id="nawoz-naturalny-value" title="input" placeholder="wartość">
+                                        <div class="unit">zł/t, m&sup3</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Liczba ton:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="25" id="nawoz-naturalny-amount" title="input" placeholder="wartość">
+                                        <div class="unit">t, m&sup3/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="nawoz-naturalny-years" title="input" placeholder="wartość">
+                                        <div class="unit">lat</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="10" id="nawoz-naturalny-measure" title="input" placeholder="wartość">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="8" id="nawoz-naturalny-onload" title="input" placeholder="wartość">
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <span class="result kalkulator-linijka-nazwa" id="nawoz-naturalny-result"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Międzyplon:</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Cena nasion:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="75" id="miedzyplon-value" title="input" placeholder="wartość">
+                                        <div class="unit">zł/kg</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Dawka nasion:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="miedzyplon-amount" title="input" placeholder="wartość">
+                                        <div class="unit">kg/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Co ile lat siew:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="2" id="miedzyplon-years" title="input" placeholder="wartość">
+                                        <div class="unit">lat</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt siewnika:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="100" id="miedzyplon-measure" title="input" placeholder="wartość">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka" style="display: none;">
+                                    <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0" id="miedzyplon-onload" title="input" placeholder="wartość">
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <span class="result kalkulator-linijka-nazwa" id="miedzyplon-result"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="kalkulator">
+                                <div class="kalkulator-linijka">
+                                    <div class="spring-cost-name">Uprawa głęboka:</div>
+                                </div>
+                                <div class="kalkulator-linijka">
+                                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
+                                    <div class="value">
+                                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="220" id="uprawa-gleboka-resume" title="input" placeholder="wartość">
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- jesień koszty -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Jesień - koszty</div>
-                <input class="group-button" id="group-button-autumn-costs" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="autumn-costs-divs">
+                <!-- wiosna koszty -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Wiosna - koszty</div>
+                        <input class="group-button" id="group-button-spring-costs" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="spring-costs">
+                        <div id="spring-costs-divs"></div>
+                    </div>
+                </section>
+
+                <!-- nawozy -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Nawozy</div>
+                        <input class="group-button" id="group-button-fertilizer" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="kalkulatory">
+                        <div id="fertilizer-divs"></div>
+                    </div>
+                </section>
+
+                <!-- nawozy dolistne -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Nawozy dolistne</div>
+                        <input class="group-button" id="group-button-fertilizer-onleaf" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="kalkulatory">
+                        <div id="fertilizer-onleaf-divs"></div>
+                    </div>
+                </section>
+
+                <!-- zabieg - nawozenie -->
+                <section>
                     <div class="kalkulator">
                         <div class="kalkulator-linijka">
-                            <div class="spring-cost-name">Badanie gleby:</div>
+                            <div class="spring-cost-name">Koszt zabiegu nawożenia:</div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                             <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="15" id="badania-gleby-value" title="input" placeholder="wartość">
-                                <div class="unit">zł/próbkę</div>
+                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-value" placeholder="koszt na ha">
+                                <div class="unit">zł/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Liczba:</p></div>
+                            <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0.25" id="badania-gleby-amount" title="input" placeholder="wartość">
-                                <div class="unit">próbek/ha</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Ile lat:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="badania-gleby-years" title="input" placeholder="wartość">
-                                <div class="unit">próbek/ha</div>
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-amount" placeholder="nawożenia">
+                                <div class="unit">razy/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
                             <div class="value">
-                                <span class="result kalkulator-linijka-nazwa" id="badania-gleby-result"></span>
+                                <span class="result kalkulator-linijka-nazwa" id="fertilizer-measure-result"></span>
                             </div>
                         </div>
                     </div>
-                
+                </section>
+
+                <!-- ochrona roślin-->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Środki ochrony roślin</div>
+                        <input class="group-button" id="group-button-pest-management" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="kalkulatory">
+                        <div id="pest-management-divs"></div>
+                    </div>
+                </section>
+
+                <!-- adiuwant -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Adiuwanty</div>
+                        <input class="group-button" id="group-button-adiuwant" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="kalkulatory">
+                        <div id="adiuwant-divs"></div>
+                    </div>
+                </section>
+
+                <!-- biopreparat -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Biopreparaty</div>
+                        <input class="group-button" id="group-button-biopreparat" type="button" value="rozwiń"></input>
+                    </div>
+                    <div class="kalkulatory">
+                        <div id="biopreparat-divs"></div>
+                    </div>
+                </section>
+
+                <!-- zabieg - nawożenie -->
+                <section>
                     <div class="kalkulator">
                         <div class="kalkulator-linijka">
-                            <div class="spring-cost-name">Wapno:</div>
+                            <div class="spring-cost-name">Koszt zabiegu opryskiwania:</div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
                             <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="88" id="wapno-value" title="input" placeholder="wartość">
-                                <div class="unit">zł/t</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="wapno-amount" title="input" placeholder="wartość">
-                                <div class="unit">t/ha</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="3" id="wapno-years" title="input" placeholder="wartość">
-                                <div class="unit">lat</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="30" id="wapno-measure" title="input" placeholder="wartość">
+                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-value" placeholder="koszt na ha">
                                 <div class="unit">zł/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
+                            <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
                             <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="5" id="wapno-onload" title="input" placeholder="wartość">
-                                <div class="unit">zł/t</div>
+                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-amount" placeholder="opryski">
+                                <div class="unit">razy/ha</div>
                             </div>
                         </div>
                         <div class="kalkulator-linijka">
                             <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
                             <div class="value">
-                                <span class="result kalkulator-linijka-nazwa" id="wapno-result"></span>
+                                <span class="result kalkulator-linijka-nazwa" id="pest-management-measure-result"></span>
                             </div>
                         </div>
                     </div>
-                
-                    <div class="kalkulator">
-                        <div class="kalkulator-linijka">
-                            <div class="spring-cost-name">Uprawa po przedplonie:</div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                            <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="120" id="uprawa-przedplon-value" title="input" placeholder="wartość">
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="kalkulator">
-                        <div class="kalkulator-linijka">
-                            <div class="spring-cost-name">Nawóz naturalny:</div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
-                            <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="63" id="nawoz-naturalny-value" title="input" placeholder="wartość">
-                                <div class="unit">zł/t, m&sup3</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Liczba ton:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="25" id="nawoz-naturalny-amount" title="input" placeholder="wartość">
-                                <div class="unit">t, m&sup3/ha</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Na ile lat:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="nawoz-naturalny-years" title="input" placeholder="wartość">
-                                <div class="unit">lat</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Cena zabiegu:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="10" id="nawoz-naturalny-measure" title="input" placeholder="wartość">
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="8" id="nawoz-naturalny-onload" title="input" placeholder="wartość">
-                                <div class="unit">zł/t</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                            <div class="value">
-                                <span class="result kalkulator-linijka-nazwa" id="nawoz-naturalny-result"></span>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="kalkulator">
-                        <div class="kalkulator-linijka">
-                            <div class="spring-cost-name">Międzyplon:</div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Cena nasion:</p></div>
-                            <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="75" id="miedzyplon-value" title="input" placeholder="wartość">
-                                <div class="unit">zł/kg</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Dawka nasion:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="4" id="miedzyplon-amount" title="input" placeholder="wartość">
-                                <div class="unit">kg/ha</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Co ile lat siew:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="2" id="miedzyplon-years" title="input" placeholder="wartość">
-                                <div class="unit">lat</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Koszt siewnika:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="100" id="miedzyplon-measure" title="input" placeholder="wartość">
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka" style="display: none;">
-                            <div class="kalkulator-linijka-nazwa"><p>Załadunek:</p></div>
-                            <div class="value">
-                                <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" value="0" id="miedzyplon-onload" title="input" placeholder="wartość">
-                                <div class="unit">zł/t</div>
-                            </div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                            <div class="value">
-                                <span class="result kalkulator-linijka-nazwa" id="miedzyplon-result"></span>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="kalkulator">
-                        <div class="kalkulator-linijka">
-                            <div class="spring-cost-name">Uprawa głęboka:</div>
-                        </div>
-                        <div class="kalkulator-linijka">
-                            <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                            <div class="value">
-                                <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" value="220" id="uprawa-gleboka-resume" title="input" placeholder="wartość">
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- wiosna koszty -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Wiosna - koszty</div>
-                <input class="group-button" id="group-button-spring-costs" type="button" value="rozwiń"></input>
-            </div>
-            <div class="spring-costs">
-                <div id="spring-costs-divs"></div>
-            </div>
-        </section>
-
-        <!-- nawozy -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Nawozy</div>
-                <input class="group-button" id="group-button-fertilizer" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="fertilizer-divs"></div>
-            </div>
-        </section>
-
-        <!-- nawozy dolistne -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Nawozy dolistne</div>
-                <input class="group-button" id="group-button-fertilizer-onleaf" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="fertilizer-onleaf-divs"></div>
-            </div>
-        </section>
-
-        <!-- zabieg - nawozenie -->
-        <section>
-            <div class="kalkulator">
-                <div class="kalkulator-linijka">
-                    <div class="spring-cost-name">Koszt zabiegu nawożenia:</div>
-                </div>
-                <div class="kalkulator-linijka">
-                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
-                    <div class="value">
-                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-value" placeholder="koszt na ha">
-                        <div class="unit">zł/ha</div>
+                <!-- zbiór -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Zbiór</div>
+                        <input class="group-button" id="group-button-harvest" type="button" value="rozwiń"></input>
                     </div>
-                </div>
-                <div class="kalkulator-linijka">
-                    <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
-                    <div class="value">
-                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="fertilizer-measure-amount" placeholder="nawożenia">
-                        <div class="unit">razy/ha</div>
-                    </div>
-                </div>
-                <div class="kalkulator-linijka">
-                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                    <div class="value">
-                        <span class="result kalkulator-linijka-nazwa" id="fertilizer-measure-result"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-        <!-- ochrona roślin-->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Środki ochrony roślin</div>
-                <input class="group-button" id="group-button-pest-management" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="pest-management-divs"></div>
-            </div>
-        </section>
-
-        <!-- adiuwant -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Adiuwanty</div>
-                <input class="group-button" id="group-button-adiuwant" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="adiuwant-divs"></div>
-            </div>
-        </section>
-
-        <!-- biopreparat -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Biopreparaty</div>
-                <input class="group-button" id="group-button-biopreparat" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="biopreparat-divs"></div>
-            </div>
-        </section>
-
-        <!-- zabieg - nawożenie -->
-        <section>
-            <div class="kalkulator">
-                <div class="kalkulator-linijka">
-                    <div class="spring-cost-name">Koszt zabiegu opryskiwania:</div>
-                </div>
-                <div class="kalkulator-linijka">
-                    <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
-                    <div class="value">
-                        <input type="text" class="price" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-value" placeholder="koszt na ha">
-                        <div class="unit">zł/ha</div>
-                    </div>
-                </div>
-                <div class="kalkulator-linijka">
-                    <div class="kalkulator-linijka-nazwa"><p>Ile razy:</p></div>
-                    <div class="value">
-                        <input type="text" class="amount" inputmode="numeric" pattern="[0-9]*" id="pest-management-measure-amount" placeholder="opryski">
-                        <div class="unit">razy/ha</div>
-                    </div>
-                </div>
-                <div class="kalkulator-linijka">
-                    <div class="kalkulator-linijka-nazwa"><p>Koszt:</p></div>
-                    <div class="value">
-                        <span class="result kalkulator-linijka-nazwa" id="pest-management-measure-result"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- zbiór -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Zbiór</div>
-                <input class="group-button" id="group-button-harvest" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="harvest-divs">
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Zbiór:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="1200" id="harvest-cost"></input>
-                                <div class="unit">zł/ha</div>
+                    <div class="kalkulatory">
+                        <div id="harvest-divs">
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Zbiór:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="1200" id="harvest-cost"></input>
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                    </div>
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Załadunek:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="2.5" id="onloading-cost"></input>
-                                <div class="unit">zł/t</div>
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Załadunek:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="2.5" id="onloading-cost"></input>
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                    </div>
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Transport:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="10" id="transport-cost"></input>
-                                <div class="unit">zł/t</div>
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Transport:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="10" id="transport-cost"></input>
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                    </div>
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Okrycie pryzmy:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="2" id="cover-cost"></input>
-                                <div class="unit">zł/t</div>
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Okrycie pryzmy:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="2" id="cover-cost"></input>
+                                        <div class="unit">zł/t</div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- zarządzanie -->
-        <section>
-            <div class="group-name">
-                <div class="group-name-text">Zarządzanie</div>
-                <input class="group-button" id="group-button-management" type="button" value="rozwiń"></input>
-            </div>
-            <div class="kalkulatory">
-                <div id="management-divs">
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Ubezpieczenie:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="120" id="insurance-cost"></input>
-                                <div class="unit">zł/ha</div>
-                            </div>
-                        </label>
+                <!-- zarządzanie -->
+                <section>
+                    <div class="group-name">
+                        <div class="group-name-text">Zarządzanie</div>
+                        <input class="group-button" id="group-button-management" type="button" value="rozwiń"></input>
                     </div>
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Podatek:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="350" id="tax-cost"></input>
-                                <div class="unit">zł/ha</div>
+                    <div class="kalkulatory">
+                        <div id="management-divs">
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Ubezpieczenie:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="120" id="insurance-cost"></input>
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                    </div>
-                    <div class="revenue">
-                        <label>
-                            <div class="revenue-name">Czynsz dzierżawny:</div>
-                            <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="1500" id="rent-cost"></input>
-                                <div class="unit">zł/ha</div>
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Podatek:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="350" id="tax-cost"></input>
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
+                            <div class="revenue">
+                                <label>
+                                    <div class="revenue-name">Czynsz dzierżawny:</div>
+                                    <div class="value">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="1500" id="rent-cost"></input>
+                                        <div class="unit">zł/ha</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- przychód -->
-        <section>
-            <div class="revenue-display">
-                <div class="group-name">
-                    <div class="group-name-text">Przychód:</div>
-                    <div id="display-revenue"></div>
-                </div>
-            </div>
-        </section>
+                <!-- przychód -->
+                <section>
+                    <div class="revenue-display">
+                        <div class="group-name">
+                            <div class="group-name-text">Przychód:</div>
+                            <div id="display-revenue"></div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- koszt -->
-        <section>
-            <div class="revenue-display">
-                <div class="group-name">
-                    <div class="group-name-text">Koszt:</div>
-                    <div id="display-costs"></div>
-                </div>
+                <!-- koszt -->
+                <section>
+                    <div class="revenue-display">
+                        <div class="group-name">
+                            <div class="group-name-text">Koszt:</div>
+                            <div id="display-costs"></div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
 </main>
 </body>

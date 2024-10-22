@@ -3,6 +3,18 @@ body{
   font-size: 14px;
   background-color: rgba(0, 132, 55, 0.2);
 }
+@media screen and (max-width: 340px){
+  body{
+    margin: 0;
+  }
+  #container{
+    border-radius: 0px;
+    width: 340px;
+  }
+  .divs{
+    margin: 0;
+  }
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -10,6 +22,7 @@ input::-webkit-inner-spin-button {
 } 
 #container {
   background-color: white;
+  width: fit-content;
   border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
@@ -146,10 +159,6 @@ h1 {
   line-height: 4px;
   padding: 0;
 }
-input:hover{
-  border-color: rgb(0, 132, 55);
-  color: rgb(0, 132, 55);
-}
 .kalkulator-linijka .remove{
   margin-right: 5px;
 
@@ -194,12 +203,13 @@ input[type="text"]{
   padding-left: 4px;
 }
 .ecoscheme{
+  width: 320px;
   margin-bottom: 20px !important;
 }
 .revenue-name, .supplement-name, .ecoscheme-name{
   text-align: left;
   font-size: 20px;
-  width: 160px;
+  width: 150px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -223,6 +233,7 @@ input[type="text"]{
   margin-right: auto;
 }
 .ecoscheme .value{
+  width: 140px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -269,4 +280,15 @@ input[type="text"] {
 }
 .none{
   display: none;
+}
+input[type="button"]:hover{
+  border-color: rgb(0, 132, 55);
+  color: rgb(0, 132, 55);
+}
+input[type="text"]:hover{
+  border-color: rgb(0, 132, 55);
+}
+input[type="button"]:focus{
+  border-color: rgb(0, 132, 55) !important;
+  color: rgb(0, 132, 55) !important;
 }

@@ -293,7 +293,7 @@ const addCalculatorAdiuwant = (parentId) => {
     });
 
     calculator.querySelector('.add').addEventListener('click', () => {
-        addCalculatorFertilizer(parentId);
+        addCalculatorAdiuwant(parentId);
     });
 };
 
@@ -444,11 +444,23 @@ function revenuesCalculation() {
 
 function soilCalculation(){
     const elementValue = document.querySelector('#badania-gleby-value');
+    let value = elementValue.value;
+    value = textToNumber(value);
+    elementValue.value = value;
+
     const elementAmount = document.querySelector('#badania-gleby-amount');
+    let amount = elementAmount.value;
+    amount = textToNumber(amount);
+    elementAmount.value = amount;
+
     const elementYears = document.querySelector('#badania-gleby-years');
+    let years = elementYears.value;
+    years = textToNumber(years);
+    elementYears.value = years;
+
     const elementResult = document.querySelector('#badania-gleby-result');
 
-    let calculation = Math.round((Number(elementValue.value) * Number(elementAmount.value))/Number(elementYears.value)*100)/100;
+    let calculation = Math.round((value * amount)/years*100)/100;
 
     if(calculation !== Infinity && !isNaN(calculation)){
         elementResult.innerHTML = calculation + " zł/ha";
@@ -460,10 +472,20 @@ function soilCalculation(){
 function costsCalculation() {
     const elementBadaniaGleby = document.querySelector('#badania-gleby-result');
     const elementWapno = document.querySelector('#wapno-result');
-    const elementPrzedplon = document.querySelector('#uprawa-przedplon-value');
     const elementNawozNaturalny = document.querySelector('#nawoz-naturalny-result');
     const elementMiedzyplon = document.querySelector('#miedzyplon-result');
+
+    const elementPrzedplon = document.querySelector('#uprawa-przedplon-value');
+    let przedplon = elementPrzedplon.value;
+    przedplon = textToNumber(przedplon);
+    elementPrzedplon.value = przedplon;
+    przedplon = parseFloat(przedplon.replace(/\s+/g, ''));
+
     const elementUprawaGleboka = document.querySelector('#uprawa-gleboka-resume');
+    let uprawaGleboka = elementUprawaGleboka.value;
+    uprawaGleboka = textToNumber(uprawaGleboka);
+    elementUprawaGleboka.value = uprawaGleboka;
+    uprawaGleboka = parseFloat(uprawaGleboka.replace(/\s+/g, ''));
 
     const elementHerbicydGlifosad = document.querySelector('#herbicyd-z-glifosatem-result');
     const elementAdiuwantGlifosad = document.querySelector('#adiuwant-do-glifosatu-result');
@@ -478,17 +500,50 @@ function costsCalculation() {
     const elementZabiegOpielania = document.querySelector('#opielanie-measure-result');
 
     const elementZbior = document.querySelector('#harvest-cost');
+    let zbior = elementZbior.value;
+    zbior = textToNumber(zbior);
+    elementZbior.value = zbior;
+    zbior = parseFloat(zbior.replace(/\s+/g, ''));
+
     const elementZaladunek = document.querySelector('#onloading-cost');
+    let zaladunek = elementZaladunek.value;
+    zaladunek = textToNumber(zaladunek);
+    elementZaladunek.value = zaladunek;
+    zaladunek = parseFloat(zaladunek.replace(/\s+/g, ''));
+
     const elementTransport = document.querySelector('#transport-cost');
+    let transport = elementTransport.value;
+    transport = textToNumber(transport);
+    elementTransport.value = transport;
+    transport = parseFloat(transport.replace(/\s+/g, ''));
+
     const elementOkryciePryzmy = document.querySelector('#cover-cost');
+    let pryzma = elementOkryciePryzmy.value;
+    pryzma = textToNumber(pryzma);
+    elementOkryciePryzmy.value = pryzma;
+    pryzma = parseFloat(pryzma.replace(/\s+/g, ''));
 
     const elementUbezpieczenie = document.querySelector('#insurance-cost');
+    let ubezpieczenia = elementUbezpieczenie.value;
+    ubezpieczenia = textToNumber(ubezpieczenia);
+    elementUbezpieczenie.value = ubezpieczenia;
+    ubezpieczenia = parseFloat(ubezpieczenia.replace(/\s+/g, ''));
+
     const elementPodatek = document.querySelector('#tax-cost');
+    let podatek = elementPodatek.value;
+    podatek = textToNumber(podatek);
+    elementPodatek.value = podatek;
+    podatek = parseFloat(podatek.replace(/\s+/g, ''));
+
     const elementCzynsz = document.querySelector('#rent-cost');
+    let czynsz = elementCzynsz.value;
+    czynsz = textToNumber(czynsz);
+    elementCzynsz.value = czynsz;
+    czynsz = parseFloat(czynsz.replace(/\s+/g, ''));
 
     const elementPlonTony = document.querySelector('#zakladany-plon');
 
-    //jesień
+    // jesień
     let totalResult =  (Number(elementBadaniaGleby.innerHTML.replace(" zł/ha", "")) + 
                         Number(elementWapno.innerHTML.replace(" zł/ha", "")) +
                         Number(elementNawozNaturalny.innerHTML.replace(" zł/ha", "")) +
@@ -517,17 +572,22 @@ function costsCalculation() {
     //zarzadzanie
     totalResult +=   (Number(elementUbezpieczenie.value) + Number(elementPodatek.value) + Number(elementCzynsz.value))
 
-
     const nawozyTotal = getFinalResult('fertilizer-divs');
     const nawozyDolistneTotal = getFinalResult('fertilizer-onleaf-divs');
     const ochronaTotal = getFinalResult('pest-management-divs');
     const adiuwantTotal = getFinalResult('adiuwant-divs');
     const biopreparatTotal = getFinalResult('biopreparat-divs');
 
-    totalResult += nawozyTotal + nawozyDolistneTotal + ochronaTotal + adiuwantTotal + biopreparatTotal;
+    totalResult += (nawozyTotal + nawozyDolistneTotal + ochronaTotal + adiuwantTotal + biopreparatTotal);
 
     totalResult = Math.round(totalResult*100)/100;
+
     document.querySelector('#display-costs').innerHTML = totalResult + " zł/ha"; 
+
+    // if(totalResult !== Infinity && !isNaN(totalResult)){
+    // } else {
+    //     document.querySelector('#display-costs').innerHTML = "";
+    // }
 }
 
 function springCalculation() {
@@ -589,7 +649,7 @@ function longCalculation(){
         const elementResult = document.querySelector(`#${id}-result`);
 
 
-        calculation = ((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)/Number(years);
+        calculation = Math.round(((Number(amount) * Number(onload)) + (Number(value)*Number(amount)) + measure)*100/Number(years))/100;
 
         if(!isNaN(calculation) && calculation !== Infinity) { 
             elementResult.innerHTML = calculation.toFixed(2) + " zł/ha";

@@ -514,7 +514,6 @@ function costsCalculation() {
     totalResult += nawozyTotal + nawozyDolistneTotal + ochronaTotal + adiuwantTotal + biopreparatTotal;
 
     totalResult = Math.round(totalResult*100)/100;
-    console.log(totalResult)
     document.querySelector('#display-costs').innerHTML = totalResult + " zł/ha"; 
 }
 
@@ -584,27 +583,12 @@ function longCalculation(){
 }
 
 document.addEventListener('input', () => {
-    soilCalculation();
     springCalculation();
     longCalculation();
-
+    soilCalculation();
     revenuesCalculation();
     costsCalculation();
 });
-
-document.querySelector('#reset').addEventListener('click', () => {
-    addCalculatorFertilizer('fertilizer-divs');
-    addCalculatorFertilizerOnleaf('fertilizer-onleaf-divs');
-    addCalculatorPestManagement('pest-management-divs');
-    addCalculatorAdiuwant('adiuwant-divs');
-    addCalculatorBiopreparat('biopreparat-divs');
-
-    revenuesDisplay();
-    springDisplay();
-
-    soilCalculation();
-    revenuesCalculation();
-})
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -657,14 +641,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`#group-button-revenue`).value = "zwiń"
     document.querySelector(`#autumn-costs-divs`).classList.remove('none')
     document.querySelector(`#group-button-autumn-costs`).value = "zwiń"
-
-    if(document.querySelector(`#spring-costs-divs`).classList.contains('none')){
-        springCalculation();
-    }
-    if(document.querySelector(`#autumn-costs-divs`).classList.contains('none')){
-        longCalculation();
-    }
-
+    
+    springCalculation();
+    longCalculation();
     soilCalculation();
     revenuesCalculation();
     costsCalculation();

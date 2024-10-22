@@ -125,14 +125,12 @@ const springUnitsValue = [
   "l, kg/ha",
   "js./ha",
   "t/ha",
-  "t/ha",
   "js./ha"
 ];
 const springUnits = [
   "zł/l",
   "zł/l, kg",
   "zł/js.",
-  "zł/l",
   "zł/l",
   "zł/js."
 ];

@@ -66,15 +66,6 @@ const elementIntegrowanaEko = document.querySelector('#ekoschemat-integrowana-pr
 const elementBiologicznaEko = document.querySelector('#ekoschemat-biologiczna-ochrona-upraw');
 const elementInnyEko = document.querySelector('#inny-ekoschemat');
 
-document.addEventListener('change', function() {
-    if (elementMiedzyplonyEko.checked) {
-        elementSystemyEko.disabled = true;
-        elementMieszanieEko.disabled = true;
-    } else {
-        elementSystemyEko.disabled = false;
-        elementMieszanieEko.disabled = false;
-    }
-});
 
 function springDisplay() {
     let springCosts = "";

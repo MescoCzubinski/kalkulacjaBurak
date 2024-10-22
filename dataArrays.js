@@ -1,11 +1,11 @@
 const revenues = [
-  "zakładany plon",
-  "plon z kontraktacji",
-  "plon pozakontraktowy",
-  "ilość wysłodków (10% s.m) na sprzedaż",
-  "cena buraków kontraktowych",
-  "cena buraków poza kontraktem",
-  "cena wysłodków"
+  "Zakładany plon",
+  "Plon z kontraktacji",
+  "Plon pozakontraktowy",
+  "Ilość wysłodków (10% s.m) na sprzedaż",
+  "Cena buraków kontraktowych",
+  "Cena buraków poza kontraktem",
+  "Cena wysłodków"
 ];
 const revenuesUnits = [
   "t/ha",
@@ -26,10 +26,10 @@ const revenuesValues = [
   20.00
 ];
 const supplements = [
-  "podstawowe wsparcie dochodów",
-  "płatność redystrybucyjna",
-  "płatność dla młodych rolników",
-  "płatność do buraków cukrowych"
+  "Podstawowe wsparcie dochodów",
+  "Płatność redystrybucyjna",
+  "Płatność dla młodych rolników",
+  "Płatność do buraków cukrowych"
 ];
 const supplementsValues = [
   483.20,
@@ -38,16 +38,16 @@ const supplementsValues = [
   1253.34
 ];
 const ecoschemes = [
-  "międzyplony lub wsiewki",
-  "plan nawożenia",
-  "zróżnicowana struktura upraw",
-  "wymieszanie obornika",
-  "naturalne nierozbryzgowo",
-  "uproszczone systemy uprawy",
-  "wymieszanie słomy z glebą",
+  "Międzyplony lub wsiewki",
+  "Plan nawożenia",
+  "Zróżnicowana struktura upraw",
+  "Wymieszanie obornika",
+  "Naturalne nierozbryzgowo",
+  "Uproszczone systemy uprawy",
+  "Wymieszanie słomy z glebą",
   "Integrowana Produkcja Roślin",
-  "biologiczna ochrona upraw",
-  "inny ekoschemat"
+  "Biologiczna ochrona upraw",
+  "Inny ekoschemat"
 ];
 const ecoschemesValues = [
   432.05,

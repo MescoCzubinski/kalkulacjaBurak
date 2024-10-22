@@ -55,6 +55,27 @@ function revenuesDisplay(){
     document.querySelector('#ecoschemes-divs').innerHTML = ecoscheme;
 }
 
+const elementMiedzyplonyEko = document.querySelector('#ekoschemat-miedzyplony-lub-wsiewki');
+const elementPlanEko = document.querySelector('#ekoschemat-plan-nawozenia');
+const elementStrukturaEko = document.querySelector('#ekoschemat-zroznicowana-struktura-upraw');
+const elementObornikEko = document.querySelector('#ekoschemat-wymieszanie-obornika');
+const elementNawozyEko = document.querySelector('#ekoschemat-stosowanie-nawozow-naturalnych');
+const elementSystemyEko = document.querySelector('#ekoschemat-uproszczone-systemy-uprawy');
+const elementMieszanieEko = document.querySelector('ekoschemat-wymieszanie-slomy-z-gleba');
+const elementIntegrowanaEko = document.querySelector('#ekoschemat-integrowana-produkcja-roslin');
+const elementBiologicznaEko = document.querySelector('#ekoschemat-biologiczna-ochrona-upraw');
+const elementInnyEko = document.querySelector('#inny-ekoschemat');
+
+document.addEventListener('change', function() {
+    if (elementMiedzyplonyEko.checked) {
+        elementSystemyEko.disabled = true;
+        elementMieszanieEko.disabled = true;
+    } else {
+        elementSystemyEko.disabled = false;
+        elementMieszanieEko.disabled = false;
+    }
+});
+
 function springDisplay() {
     let springCosts = "";
 

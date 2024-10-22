@@ -95,7 +95,7 @@ const springNamesOneVaue = [
   "Uprawa przedsiewna:",
   "Mulczowanie międzyplonu:",
   "Siew punktowy lub strip-till:"
-]
+];
 const springValues = [
   37.00,
   12.00,
@@ -112,7 +112,6 @@ const springValueValue = [
   1.00,
   1.10, 
 ];
-
 const springUnitsIDs = [
   "herbicyd-z-glifosatem",
   "adiuwant-do-glifosatu",
@@ -139,14 +138,12 @@ const springUnitsOneVaue = [
   "zł/ha",
   "zł/ha",
   "zł/ha"
-]
+];
 const autumnUnitsIDs = [
   "wapno",
   "nawoz-naturalny",
   "miedzyplon",
-]
-
-
+];
 // const numberInputs = document.querySelectorAll('input[type=text]');
 // numberInputs.forEach(input => {
 //     input.addEventListener('blur', function() {

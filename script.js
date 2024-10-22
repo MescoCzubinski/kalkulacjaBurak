@@ -117,15 +117,15 @@ const addCalculatorFertilizer = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
             <div class="value">
-                <input type="text" class="price" placeholder="cena za t">
+                <input type="text" class="price">
                 <div class="unit">zł/t</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
             <div class="value">
-                <input type="text" class="amount" placeholder="ile t na ha">
-                <div class="unit">t</div>
+                <input type="text" class="amount">
+                <div class="unit">kg/ha</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
@@ -139,8 +139,8 @@ const addCalculatorFertilizer = (parentId) => {
     const parentElement = document.getElementById(parentId);
     parentElement.appendChild(calculator);
 
-    calculator.querySelector('.price').addEventListener('input', calculate);
-    calculator.querySelector('.amount').addEventListener('input', calculate);
+    calculator.querySelector('.price').addEventListener('input', calculateFertilizer);
+    calculator.querySelector('.amount').addEventListener('input', calculateFertilizer);
 
     calculator.querySelector('.remove').addEventListener('click', () => {
         if (parentElement.getElementsByClassName('kalkulator').length > 1) {
@@ -165,14 +165,14 @@ const addCalculatorFertilizerOnleaf = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
             <div class="value">
-                <input type="text" class="price" placeholder="cena za l/kg">
+                <input type="text" class="price">
                 <div class="unit">zł/l, kg</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
             <div class="value">
-                <input type="text" class="amount" placeholder="ile l/kg na ha">
+                <input type="text" class="amount">
                 <div class="unit">l, kg/ha</div>
             </div>
         </div>
@@ -213,14 +213,14 @@ const addCalculatorPestManagement = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
             <div class="value">
-                <input type="text" class="price" placeholder="cena za l/kg">
+                <input type="text" class="price">
                 <div class="unit">zł/l, kg</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
             <div class="value">
-                <input type="text" class="amount" placeholder="ile l/kg na ha">
+                <input type="text" class="amount">
                 <div class="unit">l, kg/ha</div>
             </div>
         </div>
@@ -261,14 +261,14 @@ const addCalculatorAdiuwant = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
             <div class="value">
-                <input type="text" class="price" placeholder="cena za l/kg">
+                <input type="text" class="price">
                 <div class="unit">zł/l, kg</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
             <div class="value">
-                <input type="text" class="amount" placeholder="ile l/kg na ha">
+                <input type="text" class="amount">
                 <div class="unit">l, kg/ha</div>
             </div>
         </div>
@@ -309,14 +309,14 @@ const addCalculatorBiopreparat = (parentId) => {
         <div class="kalkulator-linijka">
             <div class="kalkulator-linijka-nazwa"><p>Cena:</p></div>
             <div class="value">
-                <input type="text" class="price" placeholder="cena za l/kg">
+                <input type="text" class="price">
                 <div class="unit">zł/l, kg</div>
             </div>
         </div>
         <div class="kalkulator-linijka">
-            <div class="kalkulator-linijka-nazwa"><p>Ilość/dawka:</p></div>
+            <div class="kalkulator-linijka-nazwa"><p>Dawka:</p></div>
             <div class="value">
-                <input type="text" class="amount" placeholder="ile l/kg na ha">
+                <input type="text" class="amount">
                 <div class="unit">l, kg/ha</div>
             </div>
         </div>
@@ -361,13 +361,33 @@ const calculate = (event) => {
     amount = parseFloat(amount.replace(/\s+/g, ''));
 
     let result = (Math.round((price * amount) * 100)) / 100;
-    if (isNaN(result)) {
-        result = 0;
-    }
 
     if(!isNaN(result) && result !== Infinity){
         calculator.querySelector('.result').textContent = result + " zł/ha";
-        calculator.setAttribute('data-result', result);  // Store the result in a data attribute
+        calculator.setAttribute('data-result', result); 
+    }
+}
+
+const calculateFertilizer = (event) => {
+    const calculator = event.target.closest('.kalkulator');
+
+    let elementPrice = calculator.querySelector('.price');
+    let price = elementPrice.value;
+    price = textToNumber(price);
+    elementPrice.value = price;
+    price = parseFloat(price.replace(/\s+/g, ''));
+
+    let elementAmount = calculator.querySelector('.amount');
+    let amount = elementAmount.value;
+    amount = textToNumber(amount);
+    elementAmount.value = amount;
+    amount = parseFloat(amount.replace(/\s+/g, ''));
+
+    let result = (Math.round((price * amount) * 100)) / 100000;
+
+    if(!isNaN(result) && result !== Infinity){
+        calculator.querySelector('.result').textContent = result + " zł/ha";
+        calculator.setAttribute('data-result', result); 
     }
 }
 
@@ -480,6 +500,7 @@ function costsCalculation() {
     przedplon = textToNumber(przedplon);
     elementPrzedplon.value = przedplon;
     przedplon = parseFloat(przedplon.replace(/\s+/g, ''));
+    console.log(przedplon)
 
     const elementUprawaGleboka = document.querySelector('#uprawa-gleboka-resume');
     let uprawaGleboka = elementUprawaGleboka.value;

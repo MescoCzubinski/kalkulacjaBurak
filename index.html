@@ -72,7 +72,7 @@
             <div class="revenue-display">
                 <div class="group-name">
                     <div class="group-name-text-result">Suma przychodów:</div>
-                    <div id="display-revenue"></div>
+                    <div id="display-revenue" class="last-result"></div>
                 </div>
             </div>
             <div class="group-name-text-separator"></div>
@@ -90,7 +90,7 @@
         <!-- jesień koszty -->
         <section>
             <div class="group-name">
-                <div class="group-name-text">Jesień - koszty</div>
+                <div class="group-name-text">Jesień</div>
                 <input class="group-button" id="group-button-autumn-costs" type="button" value="rozwiń"></input>
             </div>
             <div class="kalkulatory">
@@ -301,7 +301,7 @@
         <!-- wiosna koszty -->
         <section>
             <div class="group-name">
-                <div class="group-name-text">Wiosna - koszty</div>
+                <div class="group-name-text">Przed siewem</div>
                 <input class="group-button" id="group-button-spring-costs" type="button" value="rozwiń"></input>
             </div>
             <div class="spring-costs">
@@ -542,8 +542,8 @@
         <section>
             <div class="revenue-display">
                 <div class="group-name">
-                    <div class="group-name-text-result">Koszt:</div>
-                    <div id="display-costs"></div>
+                    <div class="group-name-text-result">Suma kosztów:</div>
+                    <div id="display-costs" class="last-result"></div>
                 </div>
             </div>
             <div class="group-name-text-separator"></div>
@@ -553,8 +553,30 @@
         <section>
             <div class="revenue-display">
                 <div class="group-name">
-                    <div class="group-name-text-result">Nadwyżka:</div>
-                    <div id="display-surplus"></div>
+                    <div class="group-name-text-result">Nadwyżka bezpośrednia:</div>
+                    <div id="display-surplus" class="last-result"></div>
+                </div>
+            </div>
+            <div class="group-name-text-separator"></div>
+        </section>
+
+        <!-- nadwyżka bezpośrednia bez dopłat-->
+        <section>
+            <div class="revenue-display">
+                <div class="group-name">
+                    <div class="group-name-text-result">Nadwyżka bezpośrednia bez dopłat:</div>
+                    <div id="display-surplus-doplata" class="last-result"></div>
+                </div>
+            </div>
+            <div class="group-name-text-separator"></div>
+        </section>
+
+        <!-- Minimalny plon kontraktowych przy założonych kosztach -->
+        <section>
+            <div class="revenue-display">
+                <div class="group-name">
+                    <div class="group-name-text-result">Minimalny plon kontraktowych przy założonych kosztach:</div>
+                    <div id="display-minimum" class="last-result"></div>
                 </div>
             </div>
             <div class="group-name-text-separator"></div>

@@ -10,7 +10,7 @@ function revenuesDisplay(){
                         <label>
                             <div class="revenue-name">${revenues[i]}</div> 
                             <div class="value">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" value="${revenuesValues[i]}" id="${revenuesIDs[revenuesInputIndex]}"></input>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" id="${revenuesIDs[revenuesInputIndex]}"></input>
                                 <div class="unit">${revenuesUnits[i]}</div>
                             </div>
                         </label>
@@ -401,7 +401,7 @@ const getFinalResult = (parentId) => {
         totalResult += result;
     }
 
-    totalResult = Math.round(totalResult * 100) / 100;  // Round the final result
+    totalResult = Math.round(totalResult * 100) / 100; 
     return totalResult;
 };
 
@@ -417,10 +417,14 @@ function revenuesCalculation() {
     });
   
     values["ilosc-wyslodkow"] = (values["zakladany-plon"] / 2);
-    document.querySelector("#ilosc-wyslodkow").value = values["ilosc-wyslodkow"];
+    if(!isNaN(values["ilosc-wyslodkow"]) || values["ilosc-wyslodkow"]){
+        document.querySelector("#ilosc-wyslodkow").value = values["ilosc-wyslodkow"];
+    }
   
     values["plon-pozakontraktowy"] = (values["zakladany-plon"] - values["plon-z-kontraktacji"]);
-    document.querySelector("#plon-pozakontraktowy").value = values["plon-pozakontraktowy"];
+    if(!isNaN(values["plon-pozakontraktowy"]) || values["plon-pozakontraktowy"]){
+        document.querySelector("#plon-pozakontraktowy").value = values["plon-pozakontraktowy"];
+    }
   
     let revenueResult = (
         values["plon-z-kontraktacji"] * values["cena-burakow-kontraktowych"] +
@@ -605,7 +609,57 @@ function surplusCalculation() {
     const elementRevenues = document.querySelector('#display-revenue')
     const elementSurplus = document.querySelector('#display-surplus')
 
-    elementSurplus.innerHTML = parseFloat(elementRevenues.innerHTML.replace(/\s+/g, '')) - parseFloat(elementCost.innerHTML.replace(/\s+/g, '')) + " zł/ha";
+    let result = parseFloat(elementRevenues.innerHTML.replace(/\s+/g, '')) - parseFloat(elementCost.innerHTML.replace(/\s+/g, ''));
+    result = Math.round(result*100)/100;
+
+    if(!isNaN(result) && result !== Infinity){
+        elementSurplus.innerHTML = result + " zł/ha";
+    } else {
+        elementSurplus.innerHTML = "uzupełnij przychody"
+    }
+}
+
+function surplusSupplyCalculation() {
+    
+    const values = {};
+  
+    revenuesIDs.forEach((id) => {
+        const element = document.querySelector(`#${id}`);
+        let value = element.value;
+        values[id] = parseFloat(value.replace(/\s+/g, ''));
+    });
+  
+    let revenueResult = (
+        values["plon-z-kontraktacji"] * values["cena-burakow-kontraktowych"] +
+        values["plon-pozakontraktowy"] * values["cena-burakow-pozakontraktowych"] +
+        values["ilosc-wyslodkow"] * values["cena-wyslodkow"]
+    );
+    revenueResult = Math.round(revenueResult * 100)/100;
+
+    const elementCost = document.querySelector('#display-costs')
+
+    let result = Number(revenueResult) - parseFloat(elementCost.innerHTML.replace(/\s+/g, ''))
+    result = Math.round(result*100)/100;
+
+    if(result !== Infinity && !isNaN(result)){
+        document.querySelector('#display-surplus-doplata').innerHTML = result + " zł/ha"
+    } else {
+        document.querySelector('#display-surplus-doplata').innerHTML = "uzupełnij przychody"
+    }
+}
+
+function minimumCalculator(){
+    const costSum = parseFloat(document.querySelector('#display-costs').innerHTML.replace(/\s+/g, ''));
+    const cenaBurakow = parseFloat(document.querySelector('#cena-burakow-kontraktowych').value.replace(/\s+/g, ''));
+
+    let result = Number(costSum)/Number(cenaBurakow);
+    result = Math.round(result*100)/100;
+
+    if(result !== Infinity && !isNaN(result)){
+        document.querySelector('#display-minimum').innerHTML = result + " zł/ha";
+    } else {
+        document.querySelector('#display-minimum').innerHTML = "uzupełnij koszty";
+    }
 }
 
 function springCalculation() {
@@ -684,6 +738,8 @@ document.addEventListener('input', () => {
     revenuesCalculation();
     costsCalculation();
     surplusCalculation();
+    surplusSupplyCalculation();
+    minimumCalculator();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -742,6 +798,8 @@ document.addEventListener('DOMContentLoaded', () => {
     revenuesCalculation();
     costsCalculation();
     surplusCalculation();
+    surplusSupplyCalculation();
+    minimumCalculator();
 });
 
 document.addEventListener('click', () => {

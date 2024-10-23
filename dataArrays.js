@@ -16,15 +16,6 @@ const revenuesUnits = [
   "zł/t",
   "zł/t"
 ];
-const revenuesValues = [
-  70.00,
-  65.00,
-  5.00,
-  35.00,
-  120.12,
-  51.48,
-  20.00
-];
 const supplements = [
   "Podstawowe wsparcie dochodów",
   "Płatność redystrybucyjna",

@@ -816,9 +816,17 @@ document.addEventListener('click', () => {
             document.querySelector('#pest-management-measure-result'),
             document.querySelector('#opielanie-measure-result')
         ]
-
         elements.forEach((element) => {
             element.innerHTML = "";
+        })
+
+        const results = [
+            document.querySelector('#display-surplus'),
+            document.querySelector('#display-surplus-doplata'),
+            document.querySelector('#display-minimum')
+        ]
+        results.forEach((result) => {
+            result.innerHTML = "uzupełnij wartości";
         })
     })
 
